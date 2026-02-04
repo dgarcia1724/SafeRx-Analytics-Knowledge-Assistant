@@ -1,0 +1,38 @@
+LISINOPRIL (Prinivil, Zestril)
+
+OVERVIEW:
+Lisinopril is an angiotensin-converting enzyme (ACE) inhibitor used to treat hypertension, heart failure, and diabetic nephropathy. It works by blocking the conversion of angiotensin I to angiotensin II, causing vasodilation, reduced aldosterone secretion, and decreased blood pressure. ACE inhibitors also prevent degradation of bradykinin, which contributes to both therapeutic effects and the characteristic dry cough side effect.
+
+DOSING:
+- Hypertension: Start 10 mg once daily; usual range 20-40 mg daily; maximum 80 mg/day
+- Heart failure: Start 2.5-5 mg once daily; target dose 20-40 mg daily
+- Post-MI: Start 5 mg within 24 hours, then 5 mg at 24 hours, then 10 mg daily
+- Renal adjustment: CrCl 10-30: start 5 mg daily; CrCl <10: start 2.5 mg daily
+- Can be taken without regard to food
+
+KEY INTERACTIONS:
+- Ibuprofen and NSAIDs: Reduce antihypertensive effect by 5-10 mmHg. NSAIDs also increase risk of acute kidney injury, especially in volume-depleted patients. The "triple whammy" of ACE inhibitor + diuretic + NSAID increases AKI risk by 31%.
+- Potassium supplements/potassium-sparing diuretics: Increased hyperkalemia risk; monitor potassium closely
+- Aspirin: High-dose aspirin (>325 mg) may reduce ACE inhibitor cardioprotective effects; low-dose aspirin (81 mg) interaction is likely not clinically significant
+- Lithium: ACE inhibitors increase lithium levels by 20-40%; monitor closely
+- Aliskiren: Contraindicated combination in diabetics due to increased renal impairment, hyperkalemia
+
+WARNINGS & CONTRAINDICATIONS:
+- BLACK BOX WARNING: Discontinue immediately if pregnancy detected. Can cause fetal injury and death, especially in 2nd and 3rd trimesters (oligohydramnios, renal failure, skull hypoplasia)
+- Contraindicated in patients with history of angioedema with ACE inhibitors
+- Angioedema risk: 0.1-0.7% overall; 3-4 times higher in Black patients; can occur years after starting
+- Hyperkalemia: More common with renal impairment, diabetes, potassium supplements
+
+MONITORING:
+- Blood pressure: 2-4 weeks after initiation or dose change
+- Serum creatinine and potassium: Within 1-2 weeks of starting, after dose changes, and periodically
+- Acceptable creatinine increase: Up to 30% from baseline is expected and not a reason to stop
+- Watch for dry cough: Occurs in 5-20% of patients, usually within first few months
+
+CLINICAL PEARLS:
+- ACE inhibitor cough is due to bradykinin accumulation; switching to ARB resolves cough in 90% of cases
+- Takes 2-4 weeks to see full antihypertensive effect
+- First-dose hypotension more common in volume-depleted patients; consider holding diuretic 2-3 days before starting
+- SOLVD trial showed 16% reduction in mortality in heart failure patients
+- In diabetic nephropathy, reduces progression to ESRD by 50% independent of blood pressure lowering
+- One of few ACE inhibitors that is not a prodrug; no hepatic conversion needed

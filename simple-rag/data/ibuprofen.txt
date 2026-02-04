@@ -1,0 +1,41 @@
+IBUPROFEN (Advil, Motrin, Nuprin)
+
+OVERVIEW:
+Ibuprofen is a propionic acid derivative NSAID with analgesic, antipyretic, and anti-inflammatory properties. It works by reversibly inhibiting cyclooxygenase-1 (COX-1) and COX-2 enzymes, reducing prostaglandin synthesis. Unlike aspirin, ibuprofen's platelet inhibition is reversible and lasts only 24 hours. It is commonly used for pain, fever, inflammation, and dysmenorrhea.
+
+DOSING:
+- Pain/fever (OTC): 200-400 mg every 4-6 hours; maximum 1,200 mg/day
+- Prescription anti-inflammatory: 400-800 mg three times daily; maximum 3,200 mg/day
+- Dysmenorrhea: 400 mg every 4 hours as needed
+- Pediatric: 5-10 mg/kg every 6-8 hours; maximum 40 mg/kg/day
+- Renal adjustment: Avoid if CrCl <30 mL/min; use with caution if CrCl 30-60
+- Take with food or milk to reduce GI upset
+
+KEY INTERACTIONS:
+- Warfarin: Increases bleeding risk through antiplatelet effects and direct GI mucosal damage. INR may increase. If pain relief needed for patients on warfarin, acetaminophen is preferred.
+- Lisinopril and other ACE inhibitors/ARBs: Reduces antihypertensive effect by 5-10 mmHg due to prostaglandin inhibition. Also increases risk of acute kidney injury, particularly with concurrent diuretic use ("triple whammy").
+- Aspirin: Ibuprofen blocks aspirin from binding to COX-1, reducing cardioprotection. Take aspirin 30 minutes before OR 8 hours after ibuprofen.
+- Lithium: Ibuprofen decreases lithium clearance by 25%; monitor lithium levels
+- Methotrexate: NSAIDs decrease clearance; potentially toxic levels
+- SSRIs: 3-fold increased risk of GI bleeding when combined
+
+WARNINGS & CONTRAINDICATIONS:
+- BLACK BOX WARNING: NSAIDs increase risk of serious cardiovascular thrombotic events, MI, and stroke. Risk increases with duration of use and cardiovascular risk factors.
+- BLACK BOX WARNING: NSAIDs increase risk of serious GI bleeding, ulceration, and perforation. Risk is higher in elderly, prior GI history, concurrent anticoagulants, corticosteroids, SSRIs.
+- Contraindicated in CABG perioperative setting (within 10-14 days)
+- Avoid in 3rd trimester pregnancy (premature ductus closure, oligohydramnios)
+- Use with extreme caution in heart failure (fluid retention)
+
+MONITORING:
+- Blood pressure: NSAIDs can increase BP by 3-5 mmHg average
+- Renal function: BUN/creatinine, especially in elderly, diabetics, heart failure patients
+- Signs of GI bleeding: Check hemoglobin if prolonged use
+- Cardiovascular symptoms: Chest pain, shortness of breath, weakness
+
+CLINICAL PEARLS:
+- Cardiovascular risk increases after just 1 week of use; lowest effective dose for shortest duration recommended
+- GI risk: Annual rate of serious GI events is 1-2% with chronic use; PPI co-therapy reduces risk by 60-80%
+- Ibuprofen has the lowest cardiovascular risk among NSAIDs (naproxen similar; diclofenac highest)
+- For patients on aspirin for cardioprotection who need occasional NSAID, timing is crucial: aspirin first, wait 30 minutes, then ibuprofen
+- Topical NSAIDs (diclofenac gel) have 90% less systemic absorption and fewer interactions
+- 400 mg provides near-maximal analgesic effect; higher doses mainly add anti-inflammatory effect

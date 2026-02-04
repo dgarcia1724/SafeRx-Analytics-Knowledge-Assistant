@@ -1,0 +1,38 @@
+WARFARIN (Coumadin, Jantoven)
+
+OVERVIEW:
+Warfarin is a vitamin K antagonist anticoagulant used to prevent and treat thromboembolic disorders including deep vein thrombosis, pulmonary embolism, atrial fibrillation-related stroke, and mechanical heart valve thrombosis. It works by inhibiting vitamin K epoxide reductase, thereby reducing synthesis of clotting factors II, VII, IX, and X. Due to its narrow therapeutic index and numerous interactions, warfarin requires careful monitoring.
+
+DOSING:
+- Initial dose: Typically 5 mg daily (2-3 mg in elderly, malnourished, or liver disease)
+- Maintenance: Highly variable, usually 2-10 mg daily; adjust based on INR
+- Target INR: 2.0-3.0 for most indications; 2.5-3.5 for mechanical heart valves
+- No renal dose adjustment required
+- Time to therapeutic effect: 3-5 days (factor II half-life is 60 hours)
+
+KEY INTERACTIONS:
+- Aspirin: SIGNIFICANTLY increases bleeding risk; concurrent use increases major bleeding by 2-3 fold. Avoid unless specifically indicated for cardiac protection.
+- Ibuprofen and other NSAIDs: Increases bleeding risk through antiplatelet effects and GI mucosal damage. If NSAID needed, consider acetaminophen instead.
+- Vitamin K-containing foods: Decrease warfarin effect. Maintain CONSISTENT intake of green leafy vegetables (spinach, kale, broccoli).
+- Antibiotics: Many increase INR (metronidazole, fluoroquinolones, macrolides, TMP-SMX)
+- Amiodarone: Increases warfarin effect by 30-50%; reduce warfarin dose by 30-50% when starting
+- Alcohol: Acute intoxication increases INR; chronic use decreases INR
+
+WARNINGS & CONTRAINDICATIONS:
+- BLACK BOX WARNING: Can cause major or fatal bleeding. Risk increases with higher INR, age >65, history of GI bleeding, hypertension, cerebrovascular disease
+- Pregnancy Category X: Causes fetal warfarin syndrome (nasal hypoplasia, skeletal abnormalities) in first trimester; CNS abnormalities throughout pregnancy
+- Contraindicated in active major bleeding, recent CNS surgery, malignant hypertension
+- Purple toe syndrome: Rare cholesterol embolization, usually 3-10 weeks after starting
+
+MONITORING:
+- INR: Daily during initiation until stable, then weekly for 1-2 weeks, then every 4 weeks when stable
+- Hemoglobin/hematocrit: Baseline and periodically
+- Signs of bleeding: Bruising, blood in urine/stool, prolonged bleeding from cuts
+
+CLINICAL PEARLS:
+- Genetic testing (CYP2C9 and VKORC1) can predict dose requirements; VKORC1 variants account for 25% of dose variability
+- Foods to maintain consistent intake: Kale (817 mcg vitamin K per cup), spinach (145 mcg), broccoli (110 mcg)
+- INR >4.0 without bleeding: Hold warfarin, recheck in 24-48 hours
+- INR >10 without bleeding: Hold warfarin, consider vitamin K 2.5-5 mg orally
+- Cranberry juice may increase INR; grapefruit has minimal effect
+- Bridging with heparin typically NOT needed for low-risk procedures

@@ -1,0 +1,36 @@
+METFORMIN (Glucophage, Glucophage XR)
+
+OVERVIEW:
+Metformin is a biguanide oral antidiabetic medication and the first-line treatment for type 2 diabetes mellitus. It works by decreasing hepatic glucose production, reducing intestinal glucose absorption, and improving insulin sensitivity by increasing peripheral glucose uptake and utilization. Unlike sulfonylureas, metformin does not cause hypoglycemia when used as monotherapy.
+
+DOSING:
+- Starting dose: 500 mg once or twice daily with meals
+- Titration: Increase by 500 mg weekly as tolerated
+- Maximum dose: 2,550 mg/day (immediate-release) or 2,000 mg/day (extended-release)
+- Renal adjustment: Contraindicated if eGFR <30 mL/min/1.73m². Not recommended to start if eGFR 30-45. If already on therapy and eGFR falls to 30-45, reduce dose by 50%.
+- Take with food to reduce GI side effects
+
+KEY INTERACTIONS:
+- Iodinated contrast media: Hold metformin 48 hours before and after procedures due to acute kidney injury risk and subsequent lactic acidosis
+- Alcohol: Increases risk of lactic acidosis and hypoglycemia
+- Carbonic anhydrase inhibitors (topiramate, zonisamide): Increased lactic acidosis risk
+- Drugs affecting renal function (NSAIDs like ibuprofen, ACE inhibitors like lisinopril): Monitor kidney function closely as reduced eGFR increases metformin accumulation
+
+WARNINGS & CONTRAINDICATIONS:
+- BLACK BOX WARNING: Lactic acidosis - rare but potentially fatal. Risk factors include renal impairment, hepatic impairment, age >65, excessive alcohol, dehydration, sepsis, and hypoxic states
+- Contraindicated in severe renal impairment (eGFR <30)
+- Hold before surgery or procedures requiring iodinated contrast
+- Vitamin B12 deficiency occurs in 7-30% of patients on long-term therapy
+
+MONITORING:
+- Hemoglobin A1c: Every 3 months until stable, then every 6 months
+- Serum creatinine and eGFR: At baseline, then annually (more frequently if eGFR <60)
+- Vitamin B12 levels: Annually after 4 years of therapy, or if symptoms of neuropathy
+- CBC if symptomatic for B12 deficiency
+
+CLINICAL PEARLS:
+- The UKPDS trial showed 39% reduction in myocardial infarction risk with metformin in overweight diabetic patients
+- GI side effects (diarrhea, nausea) occur in up to 53% of patients but often improve after 2-4 weeks
+- Extended-release formulation reduces GI side effects by approximately 50%
+- Does not cause weight gain; average weight loss is 1-2 kg
+- Can be used in prediabetes for prevention (58% reduction in diabetes progression in DPP trial)

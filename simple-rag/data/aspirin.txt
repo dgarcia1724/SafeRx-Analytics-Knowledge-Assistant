@@ -1,0 +1,39 @@
+ASPIRIN (Bayer, Ecotrin, Bufferin)
+
+OVERVIEW:
+Aspirin (acetylsalicylic acid) is a nonsteroidal anti-inflammatory drug (NSAID) with analgesic, antipyretic, anti-inflammatory, and antiplatelet properties. Unlike other NSAIDs, aspirin irreversibly inhibits cyclooxygenase (COX) enzymes, permanently blocking platelet thromboxane A2 production for the platelet's 7-10 day lifespan. This makes low-dose aspirin uniquely effective for cardiovascular protection.
+
+DOSING:
+- Pain/fever: 325-650 mg every 4-6 hours as needed; maximum 4,000 mg/day
+- Anti-inflammatory: 3.6-5.4 g/day in divided doses
+- Cardiac protection (secondary prevention): 81-325 mg once daily; 81 mg preferred
+- Primary prevention: Generally NOT recommended per 2019 ACC/AHA guidelines due to bleeding risk
+- Acute MI: 162-325 mg chewed immediately (non-enteric coated for rapid absorption)
+- No renal dose adjustment, but avoid in severe renal impairment
+
+KEY INTERACTIONS:
+- Warfarin: MAJOR interaction. Aspirin adds antiplatelet effect to anticoagulation, increasing major bleeding risk 2-3 fold. GI bleeding risk especially elevated. Use only when benefit clearly outweighs risk (e.g., mechanical valve + coronary stents).
+- Ibuprofen: Ibuprofen blocks aspirin's access to platelet COX-1. If both needed, take aspirin 30 minutes BEFORE ibuprofen or 8 hours AFTER to preserve cardioprotection.
+- ACE inhibitors (lisinopril): High-dose aspirin (>325 mg) may reduce antihypertensive and cardioprotective effects; low-dose (81 mg) likely acceptable
+- Methotrexate: Aspirin decreases renal clearance; toxic methotrexate levels possible
+- SSRIs: Additive bleeding risk due to serotonin's role in platelet aggregation
+
+WARNINGS & CONTRAINDICATIONS:
+- Contraindicated in children/teens with viral illness (Reye's syndrome - 30% mortality)
+- Contraindicated in aspirin-exacerbated respiratory disease (aspirin triad: asthma, nasal polyps, aspirin sensitivity)
+- Avoid in active peptic ulcer disease or GI bleeding
+- Stop 7-10 days before surgery if antiplatelet effect undesired
+- Pregnancy: Avoid in 3rd trimester (premature ductus arteriosus closure); low-dose may be used earlier for preeclampsia prevention
+
+MONITORING:
+- Signs of GI bleeding: Black tarry stools, hematemesis, unexplained anemia
+- Tinnitus: Sign of salicylate toxicity at high doses
+- Bleeding time: Not routinely monitored; platelet function normalized only after platelet turnover (7-10 days)
+
+CLINICAL PEARLS:
+- 81 mg provides 99% inhibition of platelet thromboxane; higher doses don't add antiplatelet benefit but increase GI bleeding
+- Enteric coating does NOT reduce GI bleeding risk (bleeding is systemic effect, not local)
+- Aspirin resistance occurs in 5-45% of patients depending on definition used
+- For secondary prevention, reduces cardiovascular events by 25% and stroke by 22%
+- In acute MI, immediate aspirin reduces mortality by 23% (ISIS-2 trial)
+- Chewing aspirin achieves therapeutic levels in 15 minutes vs 60 minutes if swallowed whole

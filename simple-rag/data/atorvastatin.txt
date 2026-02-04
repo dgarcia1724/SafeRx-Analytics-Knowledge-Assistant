@@ -1,0 +1,42 @@
+ATORVASTATIN (Lipitor)
+
+OVERVIEW:
+Atorvastatin is an HMG-CoA reductase inhibitor (statin) used to treat hyperlipidemia and reduce cardiovascular risk. It works by competitively inhibiting the rate-limiting enzyme in cholesterol biosynthesis, leading to upregulation of LDL receptors and increased clearance of LDL from blood. Atorvastatin is one of the most potent statins, capable of reducing LDL cholesterol by up to 60%.
+
+DOSING:
+- Starting dose: 10-20 mg once daily (40 mg if LDL reduction >45% needed)
+- Maintenance: 10-80 mg once daily
+- Maximum dose: 80 mg/day (reserved for patients not at goal on lower doses; avoid initiating at 80 mg)
+- No renal dose adjustment required
+- No hepatic dose adjustment for mild impairment; avoid in active liver disease
+- Can be taken any time of day (unlike shorter-acting statins)
+
+KEY INTERACTIONS:
+- Strong CYP3A4 inhibitors (clarithromycin, itraconazole, HIV protease inhibitors): Markedly increase atorvastatin levels; do not exceed 20 mg/day with these drugs
+- Cyclosporine: Do not exceed atorvastatin 10 mg/day
+- Gemfibrozil: Increases statin levels and myopathy risk; avoid combination; fenofibrate preferred if fibrate needed
+- Grapefruit juice: Large quantities (>1.2 liters daily) increase atorvastatin levels; moderate intake generally safe
+- Warfarin: Statins may slightly increase INR; monitor when starting/changing dose
+- Colchicine: Increased myopathy risk, especially in renal impairment
+
+WARNINGS & CONTRAINDICATIONS:
+- Contraindicated in active liver disease or unexplained persistent transaminase elevations (>3x ULN)
+- Contraindicated in pregnancy and breastfeeding (Category X)
+- Myopathy/rhabdomyolysis: Risk approximately 0.1%; higher with drug interactions, high doses, hypothyroidism, renal impairment
+- New-onset diabetes: 9-12% relative increase in risk with high-intensity statin therapy
+- Cognitive effects: Rare reports of memory impairment; usually reversible
+
+MONITORING:
+- Lipid panel: Fasting, at baseline, 4-12 weeks after starting or dose change, then annually
+- Liver function tests: At baseline; routine monitoring no longer required unless symptoms
+- Creatine kinase (CK): Only if muscle symptoms; do not monitor routinely
+- Report muscle pain, tenderness, weakness, especially with fever or malaise
+
+CLINICAL PEARLS:
+- High-intensity therapy (40-80 mg) reduces LDL by approximately 50%; moderate-intensity (10-20 mg) reduces by 30-50%
+- Unlike simvastatin/lovastatin, atorvastatin can be taken any time due to 14-hour half-life
+- Myalgia occurs in 5-10% of patients but true myopathy (CK >10x ULN) is rare (0.1%)
+- CoQ10 supplementation: Often tried for statin myalgia but evidence is mixed; 100-200 mg/day reasonable trial
+- ASCVD risk reduction: High-intensity statin reduces major cardiovascular events by 36% (CARDS trial in diabetics)
+- 80 mg dose was associated with increased myopathy in SEARCH trial; now typically reserve for those already tolerating it
+- Each doubling of statin dose only provides additional 6% LDL reduction ("rule of 6")
