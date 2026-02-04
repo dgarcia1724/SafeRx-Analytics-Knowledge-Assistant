@@ -162,12 +162,12 @@ def rag_query(collection: chromadb.Collection, query: str) -> tuple[str, list[di
 def main():
     print("Loading documents...")
     documents = load_documents()
-    print(f"✓ Loaded {len(set(d['source'] for d in documents))} documents")
-    print(f"✓ Created {len(documents)} chunks")
+    print(f"* Loaded {len(set(d['source'] for d in documents))} documents")
+    print(f"* Created {len(documents)} chunks")
 
-    print("✓ Generating embeddings...")
+    print("* Generating embeddings...")
     collection = create_vector_store(documents)
-    print("✓ Stored in ChromaDB")
+    print("* Stored in ChromaDB")
 
     print("\nReady! Ask a question (or 'quit' to exit):\n")
 
