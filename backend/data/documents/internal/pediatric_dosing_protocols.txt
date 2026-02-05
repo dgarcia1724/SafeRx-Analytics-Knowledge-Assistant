@@ -1,0 +1,173 @@
+DOCUMENT: SafeRx Pediatric Dosing Protocols
+Type: Clinical Reference Document
+Effective Date: January 1, 2024
+Last Updated: December 1, 2023
+Department: Pediatric Pharmacy Services
+
+============================================================
+
+PURPOSE
+-------
+
+This document provides standardized pediatric dosing guidelines for commonly prescribed medications. All doses are general guidelines; individual patient factors must always be considered.
+
+GENERAL PRINCIPLES
+------------------
+
+1. Weight-Based Dosing: Most pediatric doses are calculated per kilogram (mg/kg)
+2. Maximum Doses: Never exceed adult maximum doses regardless of weight
+3. Age Considerations: Some medications have age-specific restrictions
+4. Renal/Hepatic Function: Adjust doses for organ dysfunction
+5. Double-Check Calculations: All pediatric doses require independent verification
+
+AGE CLASSIFICATIONS
+-------------------
+
+- Neonate: 0-28 days
+- Infant: 1-12 months
+- Child: 1-12 years
+- Adolescent: 12-18 years
+
+PAIN AND FEVER MEDICATIONS
+--------------------------
+
+Acetaminophen (Tylenol):
+- Dose: 10-15 mg/kg/dose every 4-6 hours
+- Maximum single dose: 15 mg/kg (up to 1000 mg)
+- Maximum daily dose: 75 mg/kg/day (up to 4000 mg/day)
+- Available forms: Liquid 160mg/5mL, chewables, tablets
+- Note: Use caution in hepatic impairment
+
+Ibuprofen (Motrin, Advil):
+- Dose: 5-10 mg/kg/dose every 6-8 hours
+- Maximum single dose: 400 mg
+- Maximum daily dose: 40 mg/kg/day (up to 1200 mg/day)
+- Age restriction: Not recommended under 6 months
+- Contraindications: Renal impairment, active bleeding, aspirin allergy
+
+Naproxen (Aleve):
+- Dose: 5-7 mg/kg/dose every 8-12 hours
+- Maximum daily dose: 20 mg/kg/day (up to 1000 mg/day)
+- Age restriction: Not recommended under 2 years
+- Note: Longer half-life than ibuprofen
+
+ANTIBIOTICS
+-----------
+
+Amoxicillin:
+- Standard infections: 25-50 mg/kg/day divided every 8-12 hours
+- Otitis media (high dose): 80-90 mg/kg/day divided every 12 hours
+- Maximum dose: 3000 mg/day
+- Duration: Typically 7-10 days (5 days for uncomplicated otitis)
+
+Azithromycin (Zithromax):
+- Community-acquired pneumonia: 10 mg/kg day 1, then 5 mg/kg days 2-5
+- Otitis media: 10 mg/kg/day x 3 days OR 30 mg/kg single dose
+- Maximum dose: 500 mg/day
+- Available forms: Liquid 200mg/5mL, tablets
+
+Amoxicillin-Clavulanate (Augmentin):
+- Standard: 25-45 mg/kg/day (amoxicillin component) divided every 12 hours
+- Severe infections: 80-90 mg/kg/day divided every 12 hours
+- Use ES formulation (600mg/5mL) for high-dose therapy
+- Maximum: 3000 mg amoxicillin/day
+
+Ciprofloxacin:
+- Dose: 10-20 mg/kg/dose every 12 hours
+- Maximum dose: 750 mg/dose, 1500 mg/day
+- AGE RESTRICTION: Generally avoided in children <18 years due to cartilage concerns
+- Use only when no safer alternatives; document justification
+
+RESPIRATORY MEDICATIONS
+-----------------------
+
+Albuterol (inhaled):
+- Nebulizer: 0.15 mg/kg/dose (minimum 2.5 mg) every 4-6 hours PRN
+- MDI with spacer: 2-4 puffs every 4-6 hours PRN
+- Acute exacerbation: May give every 20 minutes x 3 doses
+
+Prednisolone/Prednisone:
+- Asthma exacerbation: 1-2 mg/kg/day (max 60 mg) for 3-5 days
+- Croup: 2 mg/kg single dose (max 60 mg)
+- Taper not required if duration <7 days
+
+GASTROINTESTINAL MEDICATIONS
+----------------------------
+
+Omeprazole:
+- Dose: 0.7-1 mg/kg/dose once daily
+- Infants (1-11 months): 0.5-1 mg/kg/dose
+- Maximum dose: 20 mg/day (children), 40 mg/day (adolescents)
+- Note: Capsule contents may be sprinkled on applesauce
+
+Ondansetron (Zofran):
+- Dose: 0.15 mg/kg/dose every 8 hours (IV/PO)
+- Maximum single dose: 8 mg
+- ODT formulation useful for vomiting children
+- QT prolongation risk at high doses
+
+NEUROLOGICAL/PSYCHIATRIC
+------------------------
+
+Gabapentin:
+- Neuropathic pain: Start 5 mg/kg/day, titrate to 10-35 mg/kg/day divided TID
+- Maximum: Based on age and indication (typically 3600 mg/day in adolescents)
+- Not FDA-approved <3 years for epilepsy
+
+Sertraline:
+- Depression/Anxiety: Start 25 mg/day, may increase to 50-200 mg/day
+- Age restriction: FDA-approved for OCD in children ≥6 years
+- Black box warning: Monitor for suicidal ideation in pediatric patients
+
+Fluoxetine (Prozac):
+- Depression: Start 10 mg/day, may increase to 20-60 mg/day
+- Age restriction: FDA-approved for depression ≥8 years, OCD ≥7 years
+- Only SSRI FDA-approved for pediatric depression
+
+CARDIOVASCULAR
+--------------
+
+Lisinopril:
+- Hypertension: Start 0.07 mg/kg/day (max initial 5 mg), titrate to 0.1-0.6 mg/kg/day
+- Maximum: 40 mg/day
+- Age restriction: ≥6 years for hypertension
+- Monitor: Potassium, renal function
+
+Metoprolol:
+- Hypertension: 1-2 mg/kg/day divided BID (max 6 mg/kg/day or 200 mg/day)
+- Available: Immediate release and extended release formulations
+- Caution: Asthma, diabetes (masks hypoglycemia)
+
+MEDICATIONS TO AVOID IN PEDIATRICS
+----------------------------------
+
+1. Aspirin: Risk of Reye syndrome in viral illness (children <18)
+2. Codeine: FDA contraindicated in children <12 years
+3. Tramadol: FDA contraindicated in children <12 years
+4. Tetracyclines: Avoid <8 years (tooth staining, bone effects)
+5. Fluoroquinolones: Use with caution (cartilage concerns)
+6. Loperamide: Avoid <2 years
+7. Bismuth subsalicylate: Avoid <12 years (salicylate content)
+
+HIGH-ALERT MEDICATIONS
+----------------------
+
+The following require independent double-check before dispensing:
+- Insulin
+- Opioids
+- Chemotherapy
+- Anticoagulants
+- Concentrated electrolytes
+
+CALCULATION VERIFICATION
+------------------------
+
+All pediatric doses must be verified using:
+1. Current weight (kg) - weighed within past week for inpatients
+2. Age-appropriate dosing references
+3. Independent calculation by second healthcare professional
+4. Maximum dose check against adult limits
+
+============================================================
+Document ID: REF-PEDS-2024-001
+Classification: Internal Use Only

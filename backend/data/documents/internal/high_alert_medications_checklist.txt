@@ -1,0 +1,234 @@
+DOCUMENT: SafeRx High-Alert Medications Checklist
+Type: Clinical Safety Document
+Effective Date: January 1, 2024
+Last Updated: December 20, 2023
+Department: Medication Safety Committee
+
+============================================================
+
+DEFINITION
+----------
+
+High-alert medications are drugs that bear a heightened risk of causing significant patient harm when used in error. While mistakes may or may not be more common with these drugs, the consequences of an error are more devastating.
+
+This list is based on ISMP (Institute for Safe Medication Practices) guidelines adapted for the SafeRx formulary.
+
+============================================================
+
+HIGH-ALERT MEDICATION CATEGORIES
+--------------------------------
+
+CATEGORY 1: ANTICOAGULANTS
+--------------------------
+
+Medications:
+- Warfarin (Coumadin) - all strengths
+- Heparin (unfractionated) - all concentrations
+- Enoxaparin (Lovenox)
+- Apixaban (Eliquis)
+- Rivaroxaban (Xarelto)
+- Dabigatran (Pradaxa)
+
+Required Safety Checks:
+[ ] Verify indication and duration of therapy
+[ ] Check for drug interactions (especially with aspirin, NSAIDs)
+[ ] Confirm renal function for DOACs
+[ ] Verify INR monitoring plan for warfarin
+[ ] Assess bleeding risk (HAS-BLED score if applicable)
+[ ] Educate patient on bleeding precautions
+[ ] Document baseline labs (CBC, PT/INR, aPTT, CrCl)
+
+Drug Interactions - CRITICAL:
+- Aspirin + warfarin: Increased bleeding risk - document indication
+- NSAIDs + any anticoagulant: Avoid if possible
+- Fluconazole + warfarin: Increases INR significantly
+- Amiodarone + warfarin: Increases INR significantly
+
+CATEGORY 2: INSULINS
+--------------------
+
+Medications:
+- Insulin regular (Humulin R, Novolin R)
+- Insulin NPH (Humulin N, Novolin N)
+- Insulin glargine (Lantus, Basaglar)
+- Insulin lispro (Humalog)
+- Insulin aspart (Novolog)
+- All insulin mixtures
+
+Required Safety Checks:
+[ ] Verify insulin type matches prescription exactly
+[ ] Confirm dose in units (never abbreviate "U")
+[ ] Check timing relative to meals
+[ ] Verify patient/caregiver can demonstrate administration
+[ ] Assess hypoglycemia risk factors
+[ ] Confirm glucose monitoring plan
+[ ] Review sick day management
+
+CRITICAL ALERT: Insulin mix-ups (e.g., Humalog vs Humulin) cause serious harm. Always verify exact product name.
+
+CATEGORY 3: OPIOID ANALGESICS
+-----------------------------
+
+Medications:
+- Morphine - all formulations
+- Hydromorphone (Dilaudid)
+- Oxycodone (OxyContin, Percocet)
+- Hydrocodone (Vicodin, Norco)
+- Fentanyl - patches and other formulations
+- Methadone
+- Tramadol
+
+Required Safety Checks:
+[ ] Calculate total daily MME (Morphine Milligram Equivalents)
+[ ] Review PDMP before prescribing
+[ ] Assess opioid tolerance status
+[ ] Check for interacting medications (benzodiazepines, muscle relaxants)
+[ ] Verify naloxone is co-prescribed if MME ≥50 or risk factors present
+[ ] Educate on safe storage and disposal
+[ ] Document pain assessment and functional goals
+
+MME Threshold Alerts:
+- >50 MME/day: Increased overdose risk - document justification
+- >90 MME/day: Requires specialist consultation
+- Any opioid + benzodiazepine: Requires documented justification
+
+CATEGORY 4: SEDATIVES/HYPNOTICS
+-------------------------------
+
+Medications:
+- Midazolam (Versed)
+- Lorazepam (Ativan)
+- Alprazolam (Xanax)
+- Diazepam (Valium)
+- Zolpidem (Ambien)
+- Eszopiclone (Lunesta)
+
+Required Safety Checks:
+[ ] Assess fall risk (especially in elderly)
+[ ] Check for respiratory conditions
+[ ] Review concurrent CNS depressants
+[ ] Verify short-term use for sleep aids
+[ ] Assess dependence risk
+[ ] Educate on next-day impairment
+
+CATEGORY 5: CHEMOTHERAPY/IMMUNOSUPPRESSANTS
+-------------------------------------------
+
+Medications:
+- Methotrexate (weekly dosing for non-oncology)
+- Azathioprine
+- Cyclosporine
+- Tacrolimus
+- Mycophenolate
+
+Required Safety Checks:
+[ ] Verify dosing frequency (methotrexate: WEEKLY, not daily)
+[ ] Confirm indication
+[ ] Review baseline and monitoring labs
+[ ] Check for drug interactions
+[ ] Verify pregnancy status if applicable
+[ ] Educate on infection precautions
+
+CRITICAL ALERT: Methotrexate daily dosing (instead of weekly) for non-oncology indications has caused fatal toxicity. Always verify frequency.
+
+CATEGORY 6: ORAL HYPOGLYCEMICS
+------------------------------
+
+Medications (high-risk subset):
+- Glipizide
+- Glyburide
+- Glimepiride
+- Combination products containing sulfonylureas
+
+Required Safety Checks:
+[ ] Assess hypoglycemia risk (elderly, renal impairment, irregular meals)
+[ ] Verify renal function
+[ ] Educate on hypoglycemia symptoms and treatment
+[ ] Confirm patient has glucose source available
+[ ] Review other diabetes medications for additive effect
+
+CATEGORY 7: CONCENTRATED ELECTROLYTES
+-------------------------------------
+
+Medications:
+- Potassium chloride concentrate
+- Sodium chloride >0.9%
+- Magnesium sulfate (high concentration)
+
+Required Safety Checks:
+[ ] Never stock concentrated solutions in patient care areas
+[ ] Verify dilution before administration
+[ ] Confirm IV administration rate
+[ ] Check renal function
+[ ] Monitor appropriate labs
+
+============================================================
+
+INDEPENDENT DOUBLE-CHECK REQUIREMENTS
+-------------------------------------
+
+The following require independent verification by two licensed personnel:
+
+1. ALL insulin doses
+2. Opioids: IV push doses, PCA programming, new epidural orders
+3. Anticoagulants: Initial warfarin doses, heparin infusion rates
+4. Chemotherapy: All doses
+5. Concentrated electrolytes: All IV preparations
+6. Pediatric doses: All high-alert medications in patients <18 years
+
+Double-check process:
+1. First verifier prepares/calculates
+2. Second verifier independently calculates
+3. Both compare results
+4. Both document verification
+
+============================================================
+
+LOOK-ALIKE/SOUND-ALIKE (LASA) ALERTS
+------------------------------------
+
+Commonly confused medication pairs in our formulary:
+
+| Drug A | Drug B | Risk |
+|--------|--------|------|
+| Humalog (insulin lispro) | Humulin (regular insulin) | Onset timing |
+| Losartan | Lisinopril | Different drug classes |
+| Metformin | Metronidazole | Different indications |
+| Prednisone | Prednisolone | Potency differences |
+| Hydromorphone | Morphine | 5x potency difference |
+| Clonidine | Clonazepam | Sedation vs BP |
+| Lamictal | Lamisil | Seizures vs fungal |
+| Celebrex | Celexa | Anti-inflammatory vs antidepressant |
+
+Tall Man Lettering is used in our system:
+- hydrOXYzine vs hydrALAzine
+- predniSONE vs prednisoLONE
+- glipiZIDE vs glyBURIDE
+
+============================================================
+
+PATIENT EDUCATION REQUIREMENTS
+------------------------------
+
+High-alert medications require documented patient education on:
+1. Name of medication and why prescribed
+2. Correct dose and timing
+3. Common and serious side effects
+4. When to seek medical attention
+5. Safe storage and disposal
+6. Drug and food interactions
+
+============================================================
+
+REPORTING ERRORS
+----------------
+
+All high-alert medication errors or near-misses must be reported:
+- SafeRx Safety Reporting System: safety@saferx.internal
+- Anonymous reporting available
+- No punitive action for good-faith reporting
+
+============================================================
+Document ID: SAF-HALT-2024-001
+Classification: Internal Use Only
+Annual Review Required

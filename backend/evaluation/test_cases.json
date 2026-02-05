@@ -1,0 +1,826 @@
+{
+  "version": "2.0",
+  "description": "Golden test set for SafeRx RAG evaluation - 100 test cases across 7 categories",
+  "categories": {
+    "drug_interactions": "Questions about drug-drug or drug-food interactions",
+    "adverse_reactions": "Questions about side effects and adverse reactions",
+    "contraindications": "Questions about when medications should not be used",
+    "dosage": "Questions about dosing, administration, and timing",
+    "special_populations": "Questions about pregnancy, pediatric, geriatric, renal/hepatic impairment",
+    "out_of_scope": "Non-drug-related queries that should be politely refused",
+    "edge_cases": "Ambiguous queries, multi-drug comparisons, policy questions"
+  },
+  "test_cases": [
+    {
+      "id": "TC001",
+      "category": "drug_interactions",
+      "query": "Can I take warfarin with aspirin?",
+      "expected_answer_contains": ["bleeding", "risk", "increased"],
+      "expected_sources": ["warfarin", "aspirin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC002",
+      "category": "drug_interactions",
+      "query": "Does metformin interact with alcohol?",
+      "expected_answer_contains": ["lactic acidosis", "avoid", "risk"],
+      "expected_sources": ["metformin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC003",
+      "category": "drug_interactions",
+      "query": "Can I take ibuprofen with lisinopril?",
+      "expected_answer_contains": ["kidney", "blood pressure", "reduce", "effectiveness"],
+      "expected_sources": ["lisinopril", "ibuprofen"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC004",
+      "category": "drug_interactions",
+      "query": "Does sertraline interact with tramadol?",
+      "expected_answer_contains": ["serotonin", "syndrome"],
+      "expected_sources": ["sertraline"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "TC005",
+      "category": "drug_interactions",
+      "query": "Can I take omeprazole with warfarin?",
+      "expected_answer_contains": ["increase", "INR", "monitor"],
+      "expected_sources": ["omeprazole", "warfarin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC006",
+      "category": "drug_interactions",
+      "query": "What happens if I take fluoxetine with alprazolam?",
+      "expected_answer_contains": ["increase", "levels", "sedation"],
+      "expected_sources": ["fluoxetine", "alprazolam"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "TC007",
+      "category": "drug_interactions",
+      "query": "Does levothyroxine interact with calcium supplements?",
+      "expected_answer_contains": ["absorption", "separate", "hours"],
+      "expected_sources": ["levothyroxine"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC008",
+      "category": "drug_interactions",
+      "query": "Can I take metoprolol with amlodipine?",
+      "expected_answer_contains": ["blood pressure", "heart rate", "bradycardia"],
+      "expected_sources": ["metoprolol", "amlodipine"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC009",
+      "category": "drug_interactions",
+      "query": "Does gabapentin interact with opioids?",
+      "expected_answer_contains": ["CNS", "depression", "respiratory"],
+      "expected_sources": ["gabapentin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC010",
+      "category": "drug_interactions",
+      "query": "Can I drink grapefruit juice with atorvastatin?",
+      "expected_answer_contains": ["avoid", "increase", "levels"],
+      "expected_sources": ["atorvastatin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC011",
+      "category": "drug_interactions",
+      "query": "Does prednisone interact with NSAIDs like ibuprofen?",
+      "expected_answer_contains": ["bleeding", "GI", "ulcer", "stomach"],
+      "expected_sources": ["prednisone", "ibuprofen"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC012",
+      "category": "drug_interactions",
+      "query": "Can I take ciprofloxacin with antacids?",
+      "expected_answer_contains": ["absorption", "separate", "avoid"],
+      "expected_sources": ["ciprofloxacin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC013",
+      "category": "drug_interactions",
+      "query": "Does losartan interact with potassium supplements?",
+      "expected_answer_contains": ["potassium", "hyperkalemia", "high"],
+      "expected_sources": ["losartan"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC014",
+      "category": "drug_interactions",
+      "query": "Can I take alprazolam with alcohol?",
+      "expected_answer_contains": ["CNS", "depression", "avoid", "dangerous"],
+      "expected_sources": ["alprazolam"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC015",
+      "category": "drug_interactions",
+      "query": "Does amoxicillin interact with birth control pills?",
+      "expected_answer_contains": ["effectiveness", "contraceptive"],
+      "expected_sources": ["amoxicillin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC016",
+      "category": "drug_interactions",
+      "query": "Can I take furosemide with lisinopril?",
+      "expected_answer_contains": ["blood pressure", "potassium", "monitor"],
+      "expected_sources": ["furosemide", "lisinopril"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC017",
+      "category": "drug_interactions",
+      "query": "Does azithromycin prolong QT interval with other medications?",
+      "expected_answer_contains": ["QT", "arrhythmia", "cardiac"],
+      "expected_sources": ["azithromycin"],
+      "difficulty": "hard"
+    },
+    {
+      "id": "TC018",
+      "category": "drug_interactions",
+      "query": "Can metformin and glipizide be taken together?",
+      "expected_answer_contains": ["combination", "hypoglycemia", "blood sugar"],
+      "expected_sources": ["metformin", "glipizide"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC019",
+      "category": "drug_interactions",
+      "query": "Does aspirin interact with other blood thinners?",
+      "expected_answer_contains": ["bleeding", "risk", "anticoagulant"],
+      "expected_sources": ["aspirin", "warfarin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC020",
+      "category": "drug_interactions",
+      "query": "Can I take naproxen with hydrochlorothiazide?",
+      "expected_answer_contains": ["blood pressure", "kidney", "effectiveness"],
+      "expected_sources": ["naproxen", "hydrochlorothiazide"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC021",
+      "category": "adverse_reactions",
+      "query": "What are the common side effects of metformin?",
+      "expected_answer_contains": ["nausea", "diarrhea", "stomach", "GI"],
+      "expected_sources": ["metformin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC022",
+      "category": "adverse_reactions",
+      "query": "What are the side effects of lisinopril?",
+      "expected_answer_contains": ["cough", "dizziness"],
+      "expected_sources": ["lisinopril"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC023",
+      "category": "adverse_reactions",
+      "query": "Does atorvastatin cause muscle pain?",
+      "expected_answer_contains": ["muscle", "myalgia", "pain"],
+      "expected_sources": ["atorvastatin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC024",
+      "category": "adverse_reactions",
+      "query": "What are the side effects of gabapentin?",
+      "expected_answer_contains": ["drowsiness", "dizziness", "fatigue"],
+      "expected_sources": ["gabapentin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC025",
+      "category": "adverse_reactions",
+      "query": "Does prednisone cause weight gain?",
+      "expected_answer_contains": ["weight", "gain", "appetite"],
+      "expected_sources": ["prednisone"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC026",
+      "category": "adverse_reactions",
+      "query": "What are the side effects of sertraline?",
+      "expected_answer_contains": ["nausea", "insomnia", "sexual"],
+      "expected_sources": ["sertraline"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC027",
+      "category": "adverse_reactions",
+      "query": "Does amlodipine cause ankle swelling?",
+      "expected_answer_contains": ["edema", "swelling", "peripheral"],
+      "expected_sources": ["amlodipine"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC028",
+      "category": "adverse_reactions",
+      "query": "What are the serious side effects of warfarin?",
+      "expected_answer_contains": ["bleeding", "hemorrhage"],
+      "expected_sources": ["warfarin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC029",
+      "category": "adverse_reactions",
+      "query": "Does omeprazole cause any long-term side effects?",
+      "expected_answer_contains": ["bone", "magnesium", "vitamin B12", "deficiency"],
+      "expected_sources": ["omeprazole"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC030",
+      "category": "adverse_reactions",
+      "query": "What are the side effects of alprazolam?",
+      "expected_answer_contains": ["drowsiness", "sedation", "dependence"],
+      "expected_sources": ["alprazolam"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC031",
+      "category": "adverse_reactions",
+      "query": "Does fluoxetine cause weight changes?",
+      "expected_answer_contains": ["weight", "appetite"],
+      "expected_sources": ["fluoxetine"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC032",
+      "category": "adverse_reactions",
+      "query": "What are the side effects of metoprolol?",
+      "expected_answer_contains": ["fatigue", "bradycardia", "dizziness"],
+      "expected_sources": ["metoprolol"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC033",
+      "category": "adverse_reactions",
+      "query": "Does ciprofloxacin cause tendon problems?",
+      "expected_answer_contains": ["tendon", "rupture", "tendinitis"],
+      "expected_sources": ["ciprofloxacin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC034",
+      "category": "adverse_reactions",
+      "query": "What are the GI side effects of ibuprofen?",
+      "expected_answer_contains": ["stomach", "ulcer", "bleeding", "GI"],
+      "expected_sources": ["ibuprofen"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC035",
+      "category": "adverse_reactions",
+      "query": "Does losartan cause dizziness?",
+      "expected_answer_contains": ["dizziness", "hypotension"],
+      "expected_sources": ["losartan"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC036",
+      "category": "adverse_reactions",
+      "query": "What are the side effects of amoxicillin?",
+      "expected_answer_contains": ["rash", "diarrhea", "nausea"],
+      "expected_sources": ["amoxicillin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC037",
+      "category": "adverse_reactions",
+      "query": "Does furosemide cause electrolyte imbalances?",
+      "expected_answer_contains": ["potassium", "electrolyte", "hypokalemia"],
+      "expected_sources": ["furosemide"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC038",
+      "category": "adverse_reactions",
+      "query": "What are the neurological side effects of glipizide?",
+      "expected_answer_contains": ["hypoglycemia", "dizziness", "confusion"],
+      "expected_sources": ["glipizide"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC039",
+      "category": "adverse_reactions",
+      "query": "Does albuterol cause heart racing?",
+      "expected_answer_contains": ["tachycardia", "palpitations", "tremor"],
+      "expected_sources": ["albuterol"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC040",
+      "category": "adverse_reactions",
+      "query": "What are the side effects of hydrochlorothiazide?",
+      "expected_answer_contains": ["electrolyte", "potassium", "dizziness"],
+      "expected_sources": ["hydrochlorothiazide"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC041",
+      "category": "contraindications",
+      "query": "Who should not take metformin?",
+      "expected_answer_contains": ["kidney", "renal", "impairment"],
+      "expected_sources": ["metformin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC042",
+      "category": "contraindications",
+      "query": "When is lisinopril contraindicated?",
+      "expected_answer_contains": ["pregnancy", "angioedema"],
+      "expected_sources": ["lisinopril"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC043",
+      "category": "contraindications",
+      "query": "Who should avoid taking warfarin?",
+      "expected_answer_contains": ["bleeding", "pregnancy"],
+      "expected_sources": ["warfarin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC044",
+      "category": "contraindications",
+      "query": "When should ibuprofen not be used?",
+      "expected_answer_contains": ["GI", "bleeding", "kidney", "aspirin allergy"],
+      "expected_sources": ["ibuprofen"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC045",
+      "category": "contraindications",
+      "query": "Who should not take alprazolam?",
+      "expected_answer_contains": ["glaucoma", "respiratory", "sleep apnea"],
+      "expected_sources": ["alprazolam"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC046",
+      "category": "contraindications",
+      "query": "Is metoprolol contraindicated in asthma?",
+      "expected_answer_contains": ["asthma", "bronchospasm", "caution"],
+      "expected_sources": ["metoprolol"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC047",
+      "category": "contraindications",
+      "query": "When should ciprofloxacin be avoided?",
+      "expected_answer_contains": ["tendon", "myasthenia gravis"],
+      "expected_sources": ["ciprofloxacin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC048",
+      "category": "contraindications",
+      "query": "Who should not take atorvastatin?",
+      "expected_answer_contains": ["liver", "hepatic", "pregnancy"],
+      "expected_sources": ["atorvastatin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC049",
+      "category": "contraindications",
+      "query": "Is prednisone contraindicated in any conditions?",
+      "expected_answer_contains": ["infection", "fungal", "immunocompromised"],
+      "expected_sources": ["prednisone"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC050",
+      "category": "contraindications",
+      "query": "When should fluoxetine not be prescribed?",
+      "expected_answer_contains": ["MAO inhibitor", "pimozide"],
+      "expected_sources": ["fluoxetine"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC051",
+      "category": "contraindications",
+      "query": "Who should avoid naproxen?",
+      "expected_answer_contains": ["GI bleeding", "kidney", "heart"],
+      "expected_sources": ["naproxen"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC052",
+      "category": "contraindications",
+      "query": "Is furosemide contraindicated in sulfa allergy?",
+      "expected_answer_contains": ["sulfonamide", "allergy", "caution"],
+      "expected_sources": ["furosemide"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC053",
+      "category": "contraindications",
+      "query": "When should glipizide not be used?",
+      "expected_answer_contains": ["type 1", "ketoacidosis", "DKA"],
+      "expected_sources": ["glipizide"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC054",
+      "category": "contraindications",
+      "query": "Who should not take azithromycin?",
+      "expected_answer_contains": ["liver", "QT", "cardiac"],
+      "expected_sources": ["azithromycin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC055",
+      "category": "contraindications",
+      "query": "Is albuterol safe for everyone?",
+      "expected_answer_contains": ["heart", "cardiovascular", "arrhythmia"],
+      "expected_sources": ["albuterol"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC056",
+      "category": "dosage",
+      "query": "What is the maximum daily dose of ibuprofen?",
+      "expected_answer_contains": ["3200", "2400", "mg"],
+      "expected_sources": ["ibuprofen"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC057",
+      "category": "dosage",
+      "query": "How should I take omeprazole?",
+      "expected_answer_contains": ["before", "meal", "morning", "empty stomach"],
+      "expected_sources": ["omeprazole"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC058",
+      "category": "dosage",
+      "query": "What is the starting dose of metformin?",
+      "expected_answer_contains": ["500", "mg"],
+      "expected_sources": ["metformin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC059",
+      "category": "dosage",
+      "query": "What is the typical dose of lisinopril for hypertension?",
+      "expected_answer_contains": ["10", "20", "40", "mg"],
+      "expected_sources": ["lisinopril"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC060",
+      "category": "dosage",
+      "query": "How often should gabapentin be taken?",
+      "expected_answer_contains": ["three", "times", "day", "TID"],
+      "expected_sources": ["gabapentin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC061",
+      "category": "dosage",
+      "query": "What is the recommended warfarin dose?",
+      "expected_answer_contains": ["individualized", "INR", "monitor"],
+      "expected_sources": ["warfarin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC062",
+      "category": "dosage",
+      "query": "How should levothyroxine be taken?",
+      "expected_answer_contains": ["empty stomach", "morning", "before", "food"],
+      "expected_sources": ["levothyroxine"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC063",
+      "category": "dosage",
+      "query": "What is the usual dose of atorvastatin?",
+      "expected_answer_contains": ["10", "20", "40", "80", "mg"],
+      "expected_sources": ["atorvastatin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC064",
+      "category": "dosage",
+      "query": "How much acetaminophen can I take per day?",
+      "expected_answer_contains": ["3000", "4000", "mg", "grams"],
+      "expected_sources": ["acetaminophen"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC065",
+      "category": "dosage",
+      "query": "What is the starting dose of sertraline?",
+      "expected_answer_contains": ["25", "50", "mg"],
+      "expected_sources": ["sertraline"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC066",
+      "category": "dosage",
+      "query": "How is prednisone typically dosed?",
+      "expected_answer_contains": ["varies", "condition", "taper"],
+      "expected_sources": ["prednisone"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC067",
+      "category": "dosage",
+      "query": "What is the dose of amoxicillin for a respiratory infection?",
+      "expected_answer_contains": ["500", "875", "mg", "three", "twice"],
+      "expected_sources": ["amoxicillin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC068",
+      "category": "dosage",
+      "query": "How much aspirin should I take for heart protection?",
+      "expected_answer_contains": ["81", "low", "dose", "baby"],
+      "expected_sources": ["aspirin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC069",
+      "category": "dosage",
+      "query": "What is the usual dose of metoprolol?",
+      "expected_answer_contains": ["25", "50", "100", "mg"],
+      "expected_sources": ["metoprolol"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC070",
+      "category": "dosage",
+      "query": "How is azithromycin (Z-pack) dosed?",
+      "expected_answer_contains": ["500", "250", "mg", "days"],
+      "expected_sources": ["azithromycin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC071",
+      "category": "special_populations",
+      "query": "Can pregnant women take lisinopril?",
+      "expected_answer_contains": ["contraindicated", "fetal", "avoid", "pregnancy"],
+      "expected_sources": ["lisinopril"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC072",
+      "category": "special_populations",
+      "query": "Is metformin safe during pregnancy?",
+      "expected_answer_contains": ["pregnancy", "gestational", "diabetes"],
+      "expected_sources": ["metformin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC073",
+      "category": "special_populations",
+      "query": "Can children take gabapentin?",
+      "expected_answer_contains": ["pediatric", "age", "years"],
+      "expected_sources": ["gabapentin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC074",
+      "category": "special_populations",
+      "query": "Is sertraline safe while breastfeeding?",
+      "expected_answer_contains": ["breast", "milk", "infant"],
+      "expected_sources": ["sertraline"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC075",
+      "category": "special_populations",
+      "query": "Should warfarin dose be adjusted in elderly patients?",
+      "expected_answer_contains": ["elderly", "age", "sensitivity", "lower"],
+      "expected_sources": ["warfarin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC076",
+      "category": "special_populations",
+      "query": "Can ciprofloxacin be given to children?",
+      "expected_answer_contains": ["pediatric", "cartilage", "musculoskeletal"],
+      "expected_sources": ["ciprofloxacin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC077",
+      "category": "special_populations",
+      "query": "Should metformin be adjusted in kidney disease?",
+      "expected_answer_contains": ["renal", "kidney", "GFR", "eGFR", "creatinine"],
+      "expected_sources": ["metformin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC078",
+      "category": "special_populations",
+      "query": "Is ibuprofen safe during pregnancy?",
+      "expected_answer_contains": ["third trimester", "avoid", "pregnancy"],
+      "expected_sources": ["ibuprofen"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC079",
+      "category": "special_populations",
+      "query": "Can elderly patients take alprazolam?",
+      "expected_answer_contains": ["elderly", "fall", "cognitive", "lower dose"],
+      "expected_sources": ["alprazolam"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC080",
+      "category": "special_populations",
+      "query": "Is atorvastatin safe in pregnancy?",
+      "expected_answer_contains": ["contraindicated", "pregnancy", "avoid"],
+      "expected_sources": ["atorvastatin"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC081",
+      "category": "special_populations",
+      "query": "Should gabapentin be adjusted for kidney function?",
+      "expected_answer_contains": ["renal", "dose", "adjustment", "creatinine"],
+      "expected_sources": ["gabapentin"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC082",
+      "category": "special_populations",
+      "query": "Can acetaminophen be given to infants?",
+      "expected_answer_contains": ["pediatric", "infant", "weight", "dose"],
+      "expected_sources": ["acetaminophen"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC083",
+      "category": "special_populations",
+      "query": "Is fluoxetine safe for teenagers?",
+      "expected_answer_contains": ["adolescent", "suicidal", "monitoring", "pediatric"],
+      "expected_sources": ["fluoxetine"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC084",
+      "category": "special_populations",
+      "query": "Should losartan be avoided in pregnancy?",
+      "expected_answer_contains": ["contraindicated", "pregnancy", "fetal"],
+      "expected_sources": ["losartan"],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC085",
+      "category": "special_populations",
+      "query": "Can elderly patients take furosemide?",
+      "expected_answer_contains": ["elderly", "electrolyte", "dehydration"],
+      "expected_sources": ["furosemide"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC086",
+      "category": "out_of_scope",
+      "query": "What is the weather today?",
+      "expected_behavior": "polite_refusal",
+      "expected_answer_contains": ["can't", "outside", "drug", "medication"],
+      "expected_sources": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC087",
+      "category": "out_of_scope",
+      "query": "Who won the Super Bowl?",
+      "expected_behavior": "polite_refusal",
+      "expected_answer_contains": ["can't", "outside", "drug", "medication"],
+      "expected_sources": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC088",
+      "category": "out_of_scope",
+      "query": "Can you write me a poem about medicine?",
+      "expected_behavior": "polite_refusal",
+      "expected_answer_contains": ["drug safety", "medication", "questions"],
+      "expected_sources": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC089",
+      "category": "out_of_scope",
+      "query": "What are the best restaurants near me?",
+      "expected_behavior": "polite_refusal",
+      "expected_answer_contains": ["can't", "drug", "safety"],
+      "expected_sources": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC090",
+      "category": "out_of_scope",
+      "query": "How do I fix my car?",
+      "expected_behavior": "polite_refusal",
+      "expected_answer_contains": ["can't", "drug", "medication"],
+      "expected_sources": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC091",
+      "category": "out_of_scope",
+      "query": "What's the capital of France?",
+      "expected_behavior": "polite_refusal",
+      "expected_answer_contains": ["can't", "drug", "medication"],
+      "expected_sources": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC092",
+      "category": "out_of_scope",
+      "query": "Tell me a joke",
+      "expected_behavior": "polite_refusal",
+      "expected_answer_contains": ["drug", "medication", "help"],
+      "expected_sources": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC093",
+      "category": "out_of_scope",
+      "query": "What stocks should I invest in?",
+      "expected_behavior": "polite_refusal",
+      "expected_answer_contains": ["can't", "drug", "safety"],
+      "expected_sources": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC094",
+      "category": "out_of_scope",
+      "query": "How do I cook pasta?",
+      "expected_behavior": "polite_refusal",
+      "expected_answer_contains": ["can't", "drug", "medication"],
+      "expected_sources": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC095",
+      "category": "out_of_scope",
+      "query": "What is machine learning?",
+      "expected_behavior": "polite_refusal",
+      "expected_answer_contains": ["can't", "drug", "medication"],
+      "expected_sources": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC096",
+      "category": "edge_cases",
+      "query": "Tell me about XYZ-12345 medication",
+      "expected_behavior": "no_information",
+      "expected_answer_contains": ["don't have information", "not found", "unknown"],
+      "expected_sources": [],
+      "difficulty": "easy"
+    },
+    {
+      "id": "TC097",
+      "category": "edge_cases",
+      "query": "What medications treat high blood pressure?",
+      "expected_answer_contains": ["lisinopril", "amlodipine", "losartan", "metoprolol"],
+      "expected_sources": ["lisinopril", "amlodipine", "losartan", "metoprolol"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC098",
+      "category": "edge_cases",
+      "query": "What is the SafeRx formulary policy for PPIs?",
+      "expected_answer_contains": ["omeprazole", "preferred", "formulary"],
+      "expected_sources": ["formulary"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC099",
+      "category": "edge_cases",
+      "query": "What are the opioid prescribing limits at SafeRx?",
+      "expected_answer_contains": ["MME", "days", "limit", "50", "90"],
+      "expected_sources": ["opioid"],
+      "difficulty": "medium"
+    },
+    {
+      "id": "TC100",
+      "category": "edge_cases",
+      "query": "Which drugs are considered high-alert medications?",
+      "expected_answer_contains": ["anticoagulant", "insulin", "opioid", "warfarin"],
+      "expected_sources": ["high-alert", "high alert"],
+      "difficulty": "medium"
+    }
+  ]
+}

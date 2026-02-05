@@ -1,0 +1,206 @@
+DOCUMENT: SafeRx Drug Shortage Alternatives List
+Type: Clinical Reference Document
+Effective Date: Updated Monthly
+Last Updated: January 15, 2024
+Department: Pharmacy Supply Chain
+
+============================================================
+
+PURPOSE
+-------
+
+This document provides therapeutic alternatives for medications currently in shortage or at risk of shortage. All substitutions should be evaluated for patient-specific factors.
+
+CURRENT SHORTAGE STATUS LEVELS
+------------------------------
+
+Level 1 (Green): Available, no supply concerns
+Level 2 (Yellow): Limited supply, monitor usage
+Level 3 (Orange): Critical shortage, restrict to essential use
+Level 4 (Red): Unavailable, use alternatives only
+
+============================================================
+
+CARDIOVASCULAR MEDICATIONS
+--------------------------
+
+LISINOPRIL TABLETS (Status: Level 2 - Yellow)
+Shortage details: 10mg and 20mg tablets limited
+Therapeutic alternatives:
+1. Enalapril 10-20mg daily (equivalent to lisinopril 10-20mg)
+2. Ramipril 5-10mg daily (more potent, adjust dose)
+3. Benazepril 20-40mg daily
+Notes: All ACE inhibitors have similar efficacy; monitor potassium and creatinine with any switch
+
+METOPROLOL TARTRATE (Status: Level 1 - Green)
+Currently available - no alternatives needed
+
+AMLODIPINE (Status: Level 1 - Green)
+Currently available - no alternatives needed
+
+WARFARIN (Status: Level 2 - Yellow)
+Shortage details: 5mg tablets intermittently unavailable
+Alternatives:
+1. Combine available strengths (1mg + 2mg tablets)
+2. Consider DOAC switch if appropriate (see anticoagulation protocol):
+   - Apixaban (Eliquis): For non-valvular AFib, VTE
+   - Rivaroxaban (Xarelto): For non-valvular AFib, VTE
+3. NOT interchangeable: Mechanical heart valves must remain on warfarin
+Notes: DOAC switch requires renal function assessment and insurance verification
+
+ATORVASTATIN (Status: Level 1 - Green)
+Currently available - no alternatives needed
+
+============================================================
+
+DIABETES MEDICATIONS
+--------------------
+
+METFORMIN IR TABLETS (Status: Level 3 - Orange)
+Shortage details: 500mg tablets in critical shortage
+Alternatives:
+1. Metformin ER 500mg (take once or twice daily instead of TID)
+2. Metformin liquid 500mg/5mL (limited supply)
+3. Split 1000mg tablets (if scored)
+Notes: ER formulation may have different GI tolerability; monitor blood glucose during transition
+
+GLIPIZIDE (Status: Level 1 - Green)
+Currently available - no alternatives needed
+
+============================================================
+
+ANTIBIOTICS
+-----------
+
+AMOXICILLIN SUSPENSION (Status: Level 3 - Orange)
+Shortage details: 250mg/5mL and 400mg/5mL limited
+Alternatives:
+1. Amoxicillin capsules (if child can swallow)
+2. Amoxicillin chewable tablets (if age-appropriate)
+3. Cefdinir suspension 125mg/5mL (for appropriate indications)
+4. Azithromycin (Z-pack) for respiratory infections
+Notes: Do not substitute cephalosporins in PCN allergy without assessment
+
+AZITHROMYCIN (Status: Level 2 - Yellow)
+Shortage details: 250mg tablets intermittently limited
+Alternatives:
+1. Azithromycin suspension (convert dose)
+2. Clarithromycin 500mg BID x 7 days (for appropriate indications)
+3. Doxycycline (if patient ≥8 years)
+
+CIPROFLOXACIN (Status: Level 1 - Green)
+Currently available - no alternatives needed
+
+============================================================
+
+PAIN/INFLAMMATION
+-----------------
+
+IBUPROFEN SUSPENSION (Status: Level 2 - Yellow)
+Alternatives:
+1. Ibuprofen chewable tablets (if age-appropriate)
+2. Acetaminophen suspension (for fever/pain without inflammation)
+3. Naproxen suspension (if available)
+
+ACETAMINOPHEN IV (Status: Level 3 - Orange)
+Alternatives:
+1. Oral/rectal acetaminophen when appropriate
+2. IV ketorolac (short-term, monitor renal function)
+3. Multimodal pain management approach
+
+NAPROXEN (Status: Level 1 - Green)
+Currently available - no alternatives needed
+
+============================================================
+
+MENTAL HEALTH
+-------------
+
+SERTRALINE (Status: Level 1 - Green)
+Currently available - no alternatives needed
+
+FLUOXETINE (Status: Level 1 - Green)
+Currently available - no alternatives needed
+
+ALPRAZOLAM (Status: Level 2 - Yellow)
+Shortage details: 0.5mg tablets limited
+Alternatives:
+1. Use available strengths (0.25mg, 1mg)
+2. Lorazepam equivalent dosing (alprazolam 0.5mg ≈ lorazepam 1mg)
+3. Long-acting alternatives for chronic anxiety:
+   - Clonazepam (longer half-life)
+   - SSRI initiation with temporary benzodiazepine bridge
+Notes: Monitor for withdrawal if changing benzodiazepines
+
+GABAPENTIN (Status: Level 2 - Yellow)
+Shortage details: 300mg capsules limited
+Alternatives:
+1. Use 100mg capsules (3 capsules = 300mg)
+2. 400mg capsules available
+3. Gabapentin solution 250mg/5mL
+4. Pregabalin (Lyrica) - requires prior auth, different dosing
+
+============================================================
+
+GASTROINTESTINAL
+----------------
+
+OMEPRAZOLE CAPSULES (Status: Level 1 - Green)
+Currently available - no alternatives needed
+
+============================================================
+
+RESPIRATORY
+-----------
+
+ALBUTEROL MDI (Status: Level 2 - Yellow)
+Shortage details: Generic MDIs limited
+Alternatives:
+1. Brand Ventolin/ProAir/Proventil (check formulary tier)
+2. Albuterol nebulizer solution (for patients with nebulizer)
+3. Levalbuterol (Xopenex) - check formulary status
+
+PREDNISONE TABLETS (Status: Level 2 - Yellow)
+Shortage details: 10mg and 20mg intermittently limited
+Alternatives:
+1. Use available strengths to achieve total dose
+2. Prednisolone liquid 15mg/5mL
+3. Methylprednisolone (adjust for potency: 4mg = prednisone 5mg)
+4. Dexamethasone (adjust for potency: 0.75mg = prednisone 5mg)
+
+============================================================
+
+THYROID
+-------
+
+LEVOTHYROXINE (Status: Level 2 - Yellow)
+Shortage details: Multiple strengths intermittently unavailable
+Alternatives:
+1. Combine available strengths to achieve dose
+2. Brand Synthroid/Levoxyl (if generic unavailable)
+3. DO NOT substitute between brands without TSH monitoring
+Notes: Levothyroxine is narrow therapeutic index; brand changes require TSH recheck in 6-8 weeks
+
+============================================================
+
+ORDERING ALTERNATIVES
+---------------------
+
+When ordering shortage medications:
+1. Check this list first
+2. Contact pharmacy if alternative unclear
+3. Document shortage-related substitution in chart
+4. Notify patient of medication change
+5. Schedule appropriate follow-up if switching medication class
+
+REPORTING
+---------
+
+Report critical shortages affecting patient care to:
+- Pharmacy Supply Chain: supplychain@saferx.internal
+- Safety Reporting: safety@saferx.internal
+
+============================================================
+Document ID: REF-SHORT-2024-001
+Classification: Internal Use Only
+Next Update: February 15, 2024

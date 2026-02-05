@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(dir /s \"C:\\\\Users\\\\dgarc\\\\WorkFolder\\\\FinalProjects\\\\saferx\")",
+      "Bash(git ls-tree:*)",
+      "Bash(dir:*)",
+      "Bash(git push:*)",
+      "Bash(tree:*)"
+    ]
+  }
+}

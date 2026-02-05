@@ -1,0 +1,149 @@
+DOCUMENT: SafeRx Opioid Prescribing Policy
+Type: Clinical Policy Document
+Effective Date: March 1, 2024
+Last Updated: February 15, 2024
+Department: Pain Management Committee
+
+============================================================
+
+PURPOSE
+-------
+
+This policy establishes guidelines for safe and appropriate opioid prescribing to minimize risk of addiction, overdose, and diversion while ensuring adequate pain management for patients with legitimate medical needs.
+
+SCOPE
+-----
+
+This policy applies to all healthcare providers with prescriptive authority within the SafeRx network, including physicians, nurse practitioners, and physician assistants.
+
+RISK ASSESSMENT REQUIREMENTS
+----------------------------
+
+Before initiating opioid therapy, prescribers must:
+
+1. Complete validated risk assessment tool (ORT, SOAPP-R, or equivalent)
+2. Review Prescription Drug Monitoring Program (PDMP) data
+3. Document pain diagnosis with objective findings when possible
+4. Establish functional goals for treatment
+5. Obtain informed consent documenting risks and alternatives
+
+High-Risk Indicators:
+- History of substance use disorder
+- Concurrent benzodiazepine or CNS depressant use
+- History of overdose
+- Psychiatric comorbidities
+- Age <30 with chronic non-cancer pain
+- Request for specific opioid by name
+
+PRESCRIBING LIMITS
+------------------
+
+Acute Pain (injury, post-surgical):
+- Maximum 3-day supply for opioid-naive patients
+- Maximum 7-day supply for post-surgical (with documented justification)
+- No refills on initial prescription
+
+Chronic Non-Cancer Pain:
+- Start with lowest effective dose
+- Avoid exceeding 50 MME/day without documented justification
+- Prescriptions >90 MME/day require pain specialist consultation
+- Re-evaluation required every 3 months
+
+Morphine Milligram Equivalent (MME) Reference:
+- Hydrocodone 10mg = 10 MME
+- Oxycodone 10mg = 15 MME
+- Morphine 10mg = 10 MME
+- Fentanyl patch 25mcg/hr = 60 MME
+- Tramadol 100mg = 10 MME
+
+PROHIBITED PRACTICES
+--------------------
+
+The following are strictly prohibited:
+
+1. Prescribing opioids to patients with active substance use disorder (except for OUD treatment)
+2. Co-prescribing opioids with benzodiazepines (without documented justification and increased monitoring)
+3. Prescribing opioids based solely on patient self-reported pain without examination
+4. Refilling prescriptions early without documented clinical need
+5. Prescribing more than 7-day supply of immediate-release opioids for acute pain
+
+NALOXONE CO-PRESCRIBING
+-----------------------
+
+Naloxone must be co-prescribed for patients meeting any of the following criteria:
+- Opioid dosage ≥50 MME/day
+- Concurrent opioid and benzodiazepine prescriptions
+- History of overdose
+- History of substance use disorder
+- Patient request
+
+Preferred naloxone products:
+- Narcan nasal spray 4mg (Tier 2)
+- Generic naloxone injection kit (Tier 1)
+
+MONITORING REQUIREMENTS
+-----------------------
+
+Ongoing monitoring for patients on chronic opioid therapy:
+
+1. PDMP Review: At initiation and every prescription thereafter
+2. Urine Drug Screening: Baseline and at least annually (more frequent if high-risk)
+3. Functional Assessment: Document pain levels and functional status at each visit
+4. Pill Counts: Random pill counts for high-risk patients
+5. Treatment Agreement: Signed agreement renewed annually
+
+TAPERING AND DISCONTINUATION
+----------------------------
+
+Consider tapering when:
+- Patient requests dose reduction
+- Pain resolves or significantly improves
+- Patient experiences side effects
+- Evidence of misuse or diversion
+- Patient not meeting functional goals
+
+Tapering Guidelines:
+- Reduce dose by 10-25% every 2-4 weeks for gradual taper
+- Slower taper (10% per month) for long-term therapy (>1 year)
+- Never abruptly discontinue; risk of withdrawal and uncontrolled pain
+- Refer to addiction medicine if substance use disorder suspected
+
+DRUG INTERACTIONS - CRITICAL WARNINGS
+-------------------------------------
+
+AVOID concurrent use with:
+- Benzodiazepines (alprazolam, lorazepam, diazepam): Increased risk of fatal respiratory depression
+- Muscle relaxants (carisoprodol, cyclobenzaprine): Additive CNS depression
+- Gabapentin/pregabalin at high doses: Increased respiratory depression risk
+- Alcohol: Severe CNS depression
+- MAO inhibitors: Serotonin syndrome with meperidine, tramadol
+
+USE WITH CAUTION with:
+- Antihistamines: Additive sedation
+- Antipsychotics: Increased sedation and respiratory depression
+- SSRIs/SNRIs: Serotonin syndrome risk (especially with tramadol)
+
+DOCUMENTATION REQUIREMENTS
+--------------------------
+
+Every opioid prescription must include documentation of:
+1. Pain diagnosis (ICD-10 code)
+2. Pain score and functional assessment
+3. PDMP review date
+4. Risk-benefit discussion
+5. Treatment goals
+6. Alternative treatments considered
+
+COMPLIANCE AND CONSEQUENCES
+---------------------------
+
+Failure to comply with this policy may result in:
+- Mandatory additional training
+- Prescriptive authority review
+- Referral to credentialing committee
+- Reporting to state medical board (severe violations)
+
+============================================================
+Document ID: POL-OPIOID-2024-001
+Classification: Internal Use Only
+Review Date: March 1, 2025

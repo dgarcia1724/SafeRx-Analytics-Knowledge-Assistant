@@ -1,0 +1,117 @@
+DOCUMENT: SafeRx Formulary Guidelines 2024
+Type: Internal Policy Document
+Effective Date: January 1, 2024
+Last Updated: December 15, 2023
+Department: Pharmacy and Therapeutics Committee
+
+============================================================
+
+OVERVIEW
+--------
+
+This document establishes the SafeRx Formulary Guidelines for 2024. The formulary is a list of preferred medications selected based on clinical efficacy, safety, and cost-effectiveness. Healthcare providers should prescribe formulary medications when clinically appropriate.
+
+FORMULARY TIERS
+---------------
+
+Tier 1 - Preferred Generic Medications (Lowest Copay)
+- Metformin (diabetes - first line)
+- Lisinopril (hypertension - first line ACE inhibitor)
+- Amlodipine (hypertension - first line calcium channel blocker)
+- Atorvastatin (cholesterol - first line statin)
+- Omeprazole (GERD - first line PPI)
+- Sertraline (depression/anxiety - first line SSRI)
+- Metoprolol (heart rate control - first line beta blocker)
+- Levothyroxine (hypothyroidism)
+- Gabapentin (neuropathic pain)
+- Hydrochlorothiazide (hypertension - first line diuretic)
+
+Tier 2 - Preferred Brand Medications (Medium Copay)
+- Brand-name medications with no generic equivalent
+- Specialty medications requiring prior authorization
+- Combination products when clinically indicated
+
+Tier 3 - Non-Preferred Medications (Highest Copay)
+- Medications with preferred alternatives available
+- Requires step therapy through Tier 1/2 first
+- Prior authorization may be required
+
+THERAPEUTIC SUBSTITUTION POLICY
+-------------------------------
+
+Automatic substitution is permitted for the following therapeutic classes:
+
+1. ACE Inhibitors: Lisinopril is the preferred agent
+   - Substitution from: enalapril, benazepril, ramipril, quinapril
+   - Exception: patients stable on current therapy >6 months
+
+2. Statins: Atorvastatin is the preferred agent
+   - Substitution from: simvastatin, pravastatin, rosuvastatin
+   - Exception: documented intolerance or drug interaction
+
+3. PPIs: Omeprazole is the preferred agent
+   - Substitution from: lansoprazole, pantoprazole, esomeprazole
+   - Exception: treatment failure on omeprazole
+
+4. SSRIs: Sertraline is the preferred agent for new starts
+   - No automatic substitution for patients stable on other SSRIs
+   - Consider fluoxetine for patients requiring liquid formulation
+
+PRIOR AUTHORIZATION REQUIREMENTS
+--------------------------------
+
+The following medication classes require prior authorization:
+
+1. Controlled Substances (Schedule II-IV)
+   - Opioid analgesics (see Opioid Prescribing Policy)
+   - Benzodiazepines (alprazolam, lorazepam, clonazepam)
+   - Stimulants (amphetamines, methylphenidate)
+
+2. High-Cost Medications
+   - Biologics and biosimilars
+   - Specialty injectables
+   - Medications exceeding $1,000/month
+
+3. Medications with Safety Concerns
+   - Warfarin (requires INR monitoring documentation)
+   - Methotrexate (requires appropriate diagnosis)
+   - Isotretinoin (requires iPLEDGE enrollment)
+
+QUANTITY LIMITS
+---------------
+
+Standard dispensing quantities:
+- Acute medications: 10-14 day supply
+- Maintenance medications: 30-90 day supply
+- Controlled substances: 30 day supply maximum
+
+Exceptions require clinical justification and supervisor approval.
+
+GENERIC SUBSTITUTION REQUIREMENTS
+---------------------------------
+
+Generic substitution is mandatory unless:
+1. Prescriber indicates "Dispense as Written" with clinical justification
+2. Patient has documented allergy to generic inactive ingredients
+3. Narrow therapeutic index drugs (warfarin, levothyroxine, anti-epileptics) where stability is established on brand
+
+MEDICATION REVIEW TRIGGERS
+--------------------------
+
+Mandatory pharmacist review required for:
+- Patients on 5+ chronic medications (polypharmacy)
+- New prescriptions for high-alert medications
+- Patients >65 years starting new CNS-active medications
+- Any opioid prescription >90 MME/day
+
+CONTACT INFORMATION
+-------------------
+
+For formulary questions or prior authorization:
+- Pharmacy Helpline: Internal extension 5500
+- P&T Committee: pharmacy.committee@saferx.internal
+- Emergency formulary exceptions: On-call pharmacist
+
+============================================================
+Document ID: POL-FORM-2024-001
+Classification: Internal Use Only
