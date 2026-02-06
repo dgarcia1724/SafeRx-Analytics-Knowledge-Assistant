@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Message } from "./Message";
 import { SourceCard } from "./SourceCard";
 import { SearchBar } from "./SearchBar";
-import { sendChatMessage, Source, ChatResponse } from "@/lib/api";
+import { sendChatMessageStream, Source } from "@/lib/api";
 
 interface ChatMessage {
   id: string;
@@ -41,42 +41,103 @@ export function ChatInterface() {
     setError(null);
     setIsLoading(true);
 
+    // Create placeholder for streaming response
+    const assistantMessageId = (Date.now() + 1).toString();
+    let streamedContent = "";
+
     try {
-      const response: ChatResponse = await sendChatMessage({
-        query,
-        conversation_id: conversationId || undefined,
-      });
+      await sendChatMessageStream(
+        {
+          query,
+          conversation_id: conversationId || undefined,
+        },
+        {
+          onSources: (sources, convId) => {
+            // Update conversation ID and sources
+            setConversationId(convId);
+            setSelectedSources(sources);
 
-      // Update conversation ID
-      setConversationId(response.conversation_id);
+            // Add initial assistant message
+            const assistantMessage: ChatMessage = {
+              id: assistantMessageId,
+              role: "assistant",
+              content: "",
+              sources: sources,
+              timestamp: new Date(),
+            };
+            setMessages((prev) => [...prev, assistantMessage]);
+          },
+          onChunk: (content) => {
+            streamedContent += content;
+            // Update the assistant message with new content
+            setMessages((prev) =>
+              prev.map((msg) =>
+                msg.id === assistantMessageId
+                  ? { ...msg, content: streamedContent }
+                  : msg
+              )
+            );
+          },
+          onDone: () => {
+            setIsLoading(false);
+          },
+          onError: (errorMessage) => {
+            setError(errorMessage);
+            setIsLoading(false);
 
-      // Add assistant message
-      const assistantMessage: ChatMessage = {
-        id: (Date.now() + 1).toString(),
-        role: "assistant",
-        content: response.response,
-        sources: response.sources,
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, assistantMessage]);
-
-      // Update selected sources
-      setSelectedSources(response.sources);
+            // Update message with error if it exists, or add new error message
+            setMessages((prev) => {
+              const hasAssistantMsg = prev.some(
+                (msg) => msg.id === assistantMessageId
+              );
+              if (hasAssistantMsg) {
+                return prev.map((msg) =>
+                  msg.id === assistantMessageId
+                    ? {
+                        ...msg,
+                        content: `Sorry, I encountered an error: ${errorMessage}`,
+                      }
+                    : msg
+                );
+              } else {
+                return [
+                  ...prev,
+                  {
+                    id: assistantMessageId,
+                    role: "assistant" as const,
+                    content: `Sorry, I encountered an error: ${errorMessage}`,
+                    timestamp: new Date(),
+                  },
+                ];
+              }
+            });
+          },
+        }
+      );
     } catch (err) {
       const errorMessage =
         err instanceof Error ? err.message : "An error occurred";
       setError(errorMessage);
-
-      // Add error message
-      const errorChatMessage: ChatMessage = {
-        id: (Date.now() + 1).toString(),
-        role: "assistant",
-        content: `Sorry, I encountered an error: ${errorMessage}. Please make sure the backend is running and try again.`,
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, errorChatMessage]);
-    } finally {
       setIsLoading(false);
+
+      // Add error message if streaming failed before onSources
+      setMessages((prev) => {
+        const hasAssistantMsg = prev.some(
+          (msg) => msg.id === assistantMessageId
+        );
+        if (!hasAssistantMsg) {
+          return [
+            ...prev,
+            {
+              id: assistantMessageId,
+              role: "assistant" as const,
+              content: `Sorry, I encountered an error: ${errorMessage}. Please make sure the backend is running and try again.`,
+              timestamp: new Date(),
+            },
+          ];
+        }
+        return prev;
+      });
     }
   };
 

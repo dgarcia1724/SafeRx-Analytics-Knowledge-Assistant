@@ -1,5 +1,6 @@
 from openai import OpenAI
 from dataclasses import dataclass
+from typing import Generator
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 from app.config import get_settings
@@ -18,6 +19,15 @@ class GenerationResult:
     text: str
     model: str
     usage: dict
+
+
+@dataclass
+class StreamChunk:
+    """Represents a streaming chunk."""
+
+    content: str
+    is_final: bool = False
+    usage: dict = None
 
 
 class GeneratorService:
@@ -93,6 +103,51 @@ class GeneratorService:
                 "total_tokens": response.usage.total_tokens,
             },
         )
+
+    def generate_stream(
+        self,
+        query: str,
+        context_chunks: list[RetrievalResult],
+        temperature: float = 0.3,
+    ) -> Generator[StreamChunk, None, None]:
+        """Generate a streaming response based on query and context."""
+        # Format context from retrieval results
+        context = format_context(context_chunks)
+
+        # Build the prompt
+        prompt = DRUG_SAFETY_SYSTEM_PROMPT.format(
+            context=context,
+            query=query,
+        )
+
+        stream = self.client.chat.completions.create(
+            model=self.model,
+            messages=[
+                {"role": "user", "content": prompt},
+            ],
+            temperature=temperature,
+            max_tokens=1024,
+            stream=True,
+            stream_options={"include_usage": True},
+        )
+
+        for chunk in stream:
+            if chunk.choices and len(chunk.choices) > 0:
+                delta = chunk.choices[0].delta
+                if delta.content:
+                    yield StreamChunk(content=delta.content)
+
+            # Final chunk with usage stats
+            if chunk.usage:
+                yield StreamChunk(
+                    content="",
+                    is_final=True,
+                    usage={
+                        "prompt_tokens": chunk.usage.prompt_tokens,
+                        "completion_tokens": chunk.usage.completion_tokens,
+                        "total_tokens": chunk.usage.total_tokens,
+                    },
+                )
 
     def is_drug_safety_query(self, query: str) -> bool:
         """Check if the query is related to drug safety (simple heuristic)."""

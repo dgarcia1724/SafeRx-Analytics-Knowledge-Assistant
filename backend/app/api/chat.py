@@ -11,9 +11,11 @@ Pipeline:
 """
 
 from fastapi import APIRouter, HTTPException, Query
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from typing import Optional
 import uuid
+import json
 
 from app.config import get_settings
 from app.services.retriever import RetrieverService, RetrievalResult
@@ -198,6 +200,125 @@ async def chat(request: ChatRequest):
             status_code=500,
             detail=f"Error processing chat request: {str(e)}",
         )
+
+
+@router.post("/chat/stream")
+async def chat_stream(request: ChatRequest):
+    """
+    Process a chat query with streaming response.
+
+    Returns Server-Sent Events (SSE) with:
+    - 'sources' event: Retrieved sources (sent first)
+    - 'chunk' events: Streamed response tokens
+    - 'done' event: Final message with metadata
+    """
+    settings = get_settings()
+    tracer = get_tracer()
+
+    # Create trace
+    trace = tracer.create_trace(
+        query=request.query,
+        conversation_id=request.conversation_id,
+    )
+
+    async def generate_stream():
+        try:
+            # Initialize services
+            trace.start_step("init_services")
+            pipeline = RerankerPipeline()
+            generator = GeneratorService()
+            trace.end_step()
+
+            # Check if collection has documents
+            stats = pipeline.get_stats()
+            vector_count = stats['hybrid']['vector'].get('count', 0)
+            if vector_count == 0:
+                yield f"data: {json.dumps({'type': 'error', 'message': 'No documents in knowledge base'})}\n\n"
+                return
+
+            # Determine retrieval parameters
+            top_k = request.top_k if request.top_k else settings.top_k_results
+            enable_reranking = (
+                request.enable_reranking
+                if request.enable_reranking is not None
+                else settings.enable_reranking
+            )
+
+            # Retrieve relevant documents
+            trace.start_step("retrieval")
+            hybrid_results, retrieval_info = pipeline.search(
+                query=request.query,
+                top_k=top_k,
+                enable_reranking=enable_reranking,
+            )
+            trace.end_step()
+
+            # Record retrieval info
+            trace.candidates_retrieved = retrieval_info.get('hybrid_candidates', 0)
+            trace.final_results_count = len(hybrid_results)
+
+            # Convert to RetrievalResult for generator compatibility
+            retrieval_results = [r.to_retrieval_result() for r in hybrid_results]
+
+            # Format and send sources first
+            sources = format_sources(retrieval_results)
+            conversation_id = request.conversation_id or str(uuid.uuid4())
+
+            yield f"data: {json.dumps({'type': 'sources', 'sources': sources, 'conversation_id': conversation_id})}\n\n"
+
+            # Stream generation
+            trace.start_step("generation")
+            full_response = ""
+
+            if retrieval_results:
+                for chunk in generator.generate_stream(
+                    query=request.query,
+                    context_chunks=retrieval_results,
+                ):
+                    if chunk.content:
+                        full_response += chunk.content
+                        yield f"data: {json.dumps({'type': 'chunk', 'content': chunk.content})}\n\n"
+
+                    if chunk.is_final and chunk.usage:
+                        trace.set_token_usage(
+                            prompt_tokens=chunk.usage.get('prompt_tokens', 0),
+                            completion_tokens=chunk.usage.get('completion_tokens', 0),
+                            total_tokens=chunk.usage.get('total_tokens', 0),
+                        )
+            else:
+                # No results - generate refusal
+                refusal = generator.generate_refusal(request.query)
+                full_response = refusal.text
+                yield f"data: {json.dumps({'type': 'chunk', 'content': refusal.text})}\n\n"
+
+            trace.end_step()
+
+            # Record response
+            trace.response_text = full_response
+            trace.response_length = len(full_response)
+            trace.sources_cited = len(sources)
+
+            # Complete trace
+            trace.complete(success=True)
+            tracer.save_trace(trace)
+
+            # Send done event
+            yield f"data: {json.dumps({'type': 'done', 'trace_id': trace.trace_id})}\n\n"
+
+        except Exception as e:
+            trace.complete(success=False, error=str(e))
+            tracer.save_trace(trace)
+            yield f"data: {json.dumps({'type': 'error', 'message': str(e)})}\n\n"
+
+    return StreamingResponse(
+        generate_stream(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+            "X-Accel-Buffering": "no",
+        },
+    )
 
 
 @router.post("/chat/debug", response_model=DebugChatResponse)
