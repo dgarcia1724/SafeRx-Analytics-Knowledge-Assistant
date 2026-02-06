@@ -1,0 +1,3386 @@
+{
+  "timestamp": "2026-02-05T16:44:48.040095",
+  "config": {
+    "hybrid_search": true,
+    "reranking": true,
+    "reranker_model": "cross-encoder",
+    "vector_weight": 0.7,
+    "bm25_weight": 0.3
+  },
+  "collection_stats": {
+    "vector": {
+      "name": "drug_safety_docs",
+      "count": 848
+    },
+    "bm25": {
+      "document_count": 848,
+      "index_loaded": true,
+      "index_path": "data\\bm25_index.pkl",
+      "avg_doc_length": 228.36438679245282
+    },
+    "hybrid_config": {
+      "enabled": true,
+      "vector_weight": 0.7,
+      "bm25_weight": 0.3,
+      "rrf_k": 60
+    }
+  },
+  "test_summary": {
+    "total": 100,
+    "passed": 62,
+    "failed": 38,
+    "pass_rate": 0.62,
+    "total_evaluation_time_s": 570.7056369781494,
+    "avg_query_time_ms": 5706.986300945282
+  },
+  "metrics": {
+    "total_cases": 100,
+    "overall": {
+      "avg_mrr": 0.9420000000000001,
+      "avg_recall_at_5": 0.9625,
+      "avg_precision_at_5": 0.736,
+      "avg_keyword_match": 0.54
+    },
+    "by_category": {
+      "drug_interactions": {
+        "count": 20,
+        "avg_mrr": 0.95,
+        "avg_recall": 0.9,
+        "avg_precision": 0.8300000000000001,
+        "avg_keyword_match": 0.5708333333333333
+      },
+      "adverse_reactions": {
+        "count": 20,
+        "avg_mrr": 0.975,
+        "avg_recall": 1.0,
+        "avg_precision": 0.89,
+        "avg_keyword_match": 0.6291666666666667
+      },
+      "contraindications": {
+        "count": 15,
+        "avg_mrr": 0.9666666666666667,
+        "avg_recall": 1.0,
+        "avg_precision": 0.92,
+        "avg_keyword_match": 0.45
+      },
+      "dosage": {
+        "count": 15,
+        "avg_mrr": 0.8333333333333334,
+        "avg_recall": 0.9333333333333333,
+        "avg_precision": 0.7466666666666666,
+        "avg_keyword_match": 0.6766666666666666
+      },
+      "special_populations": {
+        "count": 15,
+        "avg_mrr": 0.9133333333333333,
+        "avg_recall": 1.0,
+        "avg_precision": 0.8133333333333332,
+        "avg_keyword_match": 0.6477777777777778
+      },
+      "out_of_scope": {
+        "count": 10,
+        "avg_mrr": 1.0,
+        "avg_recall": 1.0,
+        "avg_precision": 0.0,
+        "avg_keyword_match": 0.0
+      },
+      "edge_cases": {
+        "count": 5,
+        "avg_mrr": 1.0,
+        "avg_recall": 0.85,
+        "avg_precision": 0.4,
+        "avg_keyword_match": 0.6766666666666666
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "count": 47,
+        "avg_mrr": 0.925531914893617,
+        "avg_recall": 0.9787234042553191,
+        "avg_precision": 0.6297872340425532,
+        "avg_keyword_match": 0.4946808510638298
+      },
+      "medium": {
+        "count": 50,
+        "avg_mrr": 0.9540000000000001,
+        "avg_recall": 0.945,
+        "avg_precision": 0.8320000000000001,
+        "avg_keyword_match": 0.575
+      },
+      "hard": {
+        "count": 3,
+        "avg_mrr": 1.0,
+        "avg_recall": 1.0,
+        "avg_precision": 0.7999999999999999,
+        "avg_keyword_match": 0.6666666666666666
+      }
+    }
+  },
+  "failure_analysis": {
+    "total_failures": 38,
+    "retrieval_failures": 1,
+    "generation_failures": 27,
+    "other_failures": 10,
+    "by_category": {
+      "drug_interactions": 7,
+      "adverse_reactions": 7,
+      "contraindications": 6,
+      "dosage": 4,
+      "special_populations": 4,
+      "out_of_scope": 10
+    },
+    "by_difficulty": {
+      "medium": 17,
+      "easy": 20,
+      "hard": 1
+    },
+    "retrieval_failure_ids": [
+      "TC056"
+    ],
+    "generation_failure_ids": [
+      "TC003",
+      "TC011",
+      "TC012",
+      "TC014",
+      "TC016",
+      "TC017",
+      "TC020",
+      "TC027",
+      "TC029",
+      "TC030",
+      "TC032",
+      "TC038",
+      "TC039",
+      "TC040",
+      "TC045",
+      "TC047",
+      "TC049",
+      "TC050",
+      "TC051",
+      "TC054",
+      "TC064",
+      "TC067",
+      "TC068",
+      "TC076",
+      "TC079",
+      "TC080",
+      "TC085"
+    ]
+  },
+  "detailed_results": [
+    {
+      "test_id": "TC001",
+      "category": "drug_interactions",
+      "difficulty": "easy",
+      "query": "Can I take warfarin with aspirin?",
+      "answer": "Taking warfarin with aspirin is not recommended unless directed by a healthcare provider, as this combination significantly increases the risk of bleeding. Both medications have anticoagulant properties, and their concurrent use can lead to serious complications, including major bleeding events [Source 1][Source 2]. \n\nIf you are considering this combination for any reason, it is crucial to consult your healthcare provider for personalized advice and monitoring.",
+      "retrieved_sources": [
+        "Aspirin",
+        "Warfarin",
+        "Warfarin - FDA Drug Label",
+        "Warfarin",
+        "Warfarin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "warfarin",
+        "aspirin"
+      ],
+      "expected_keywords": [
+        "bleeding",
+        "risk",
+        "increased"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 38790.81630706787,
+      "generation_time_ms": 2391.099452972412,
+      "total_time_ms": 41181.91576004028,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC002",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Does metformin interact with alcohol?",
+      "answer": "Yes, metformin interacts with alcohol. The consumption of alcohol can increase the risk of lactic acidosis in patients taking metformin. It is advised to warn patients against excessive alcohol intake while receiving metformin, as alcohol can potentiate the drug's effect on lactate metabolism, potentially leading to serious complications such as lactic acidosis [Source 1][Source 2][Source 4]. \n\nAlways consult a healthcare provider for personalized advice regarding alcohol consumption while on me...",
+      "retrieved_sources": [
+        "Metformin",
+        "Metformin - FDA Drug Label",
+        "Metformin - FDA Drug Label",
+        "Metformin - FDA Drug Label",
+        "Metformin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "metformin"
+      ],
+      "expected_keywords": [
+        "lactic acidosis",
+        "avoid",
+        "risk"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2646.2061405181885,
+      "generation_time_ms": 1859.0264320373535,
+      "total_time_ms": 4505.232572555542,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC003",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Can I take ibuprofen with lisinopril?",
+      "answer": "I don't have information about the interaction between ibuprofen and lisinopril in my knowledge base. It is advisable to consult a healthcare provider for guidance on taking ibuprofen with lisinopril, as they can provide personalized advice based on your health status and medications.",
+      "retrieved_sources": [
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Lisinopril"
+      ],
+      "expected_sources": [
+        "lisinopril",
+        "ibuprofen"
+      ],
+      "expected_keywords": [
+        "kidney",
+        "blood pressure",
+        "reduce",
+        "effectiveness"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2626.566171646118,
+      "generation_time_ms": 1733.4859371185303,
+      "total_time_ms": 4360.052108764648,
+      "mrr": 0.5,
+      "recall_at_k": 0.5,
+      "precision_at_k": 0.6,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.00"
+    },
+    {
+      "test_id": "TC004",
+      "category": "drug_interactions",
+      "difficulty": "hard",
+      "query": "Does sertraline interact with tramadol?",
+      "answer": "Yes, sertraline can interact with tramadol. Both medications can increase the risk of serotonin syndrome, especially when used together. Serotonin syndrome is a potentially life-threatening condition that can occur when serotonergic drugs are combined. Patients should be monitored closely for symptoms of serotonin syndrome, particularly during the initiation of treatment or when doses are adjusted [Source 1][Source 3].\n\nIf you are considering using these medications together, it is crucial to co...",
+      "retrieved_sources": [
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "sertraline"
+      ],
+      "expected_keywords": [
+        "serotonin",
+        "syndrome"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2642.5509452819824,
+      "generation_time_ms": 2396.144390106201,
+      "total_time_ms": 5038.695335388184,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC005",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Can I take omeprazole with warfarin?",
+      "answer": "Yes, omeprazole can be taken with warfarin, but caution is advised due to potential interactions. Omeprazole is known to interact with certain medications, and it is important to monitor the International Normalized Ratio (INR) closely when starting or stopping any medication, including omeprazole, in patients taking warfarin. This is because changes in drug levels can affect anticoagulation control and increase the risk of bleeding [Source 1][Source 3].\n\nAdditionally, patients should always con...",
+      "retrieved_sources": [
+        "Warfarin - FDA Drug Label",
+        "Omeprazole - FDA Drug Label",
+        "Warfarin - FDA Drug Label",
+        "Warfarin - FDA Drug Label",
+        "Warfarin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "omeprazole",
+        "warfarin"
+      ],
+      "expected_keywords": [
+        "increase",
+        "INR",
+        "monitor"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2271.1386680603027,
+      "generation_time_ms": 3389.591932296753,
+      "total_time_ms": 5660.730600357056,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC006",
+      "category": "drug_interactions",
+      "difficulty": "hard",
+      "query": "What happens if I take fluoxetine with alprazolam?",
+      "answer": "Coadministration of fluoxetine with alprazolam can lead to significant drug interactions. Specifically, fluoxetine increases the maximum plasma concentration of alprazolam by approximately 46%, decreases its clearance by 21%, and increases its half-life (T 1/2) by 17%. This interaction can also result in decreased psychomotor performance due to the elevated levels of alprazolam in the bloodstream [Source 2][Source 3].\n\nGiven these potential effects, it is important to monitor patients closely wh...",
+      "retrieved_sources": [
+        "Fluoxetine - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "fluoxetine",
+        "alprazolam"
+      ],
+      "expected_keywords": [
+        "increase",
+        "levels",
+        "sedation"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2663.938045501709,
+      "generation_time_ms": 2634.077548980713,
+      "total_time_ms": 5298.015594482422,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC007",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Does levothyroxine interact with calcium supplements?",
+      "answer": "Yes, levothyroxine can interact with calcium supplements. Calcium supplements, along with other phosphate binders, may bind to levothyroxine and decrease its absorption, potentially leading to reduced efficacy and resulting in hypothyroidism. It is recommended to administer levothyroxine sodium tablets at least 4 hours apart from calcium supplements to minimize this interaction [Source 1][Source 2]. \n\nFor any specific dosing or timing questions, please consult a healthcare provider.",
+      "retrieved_sources": [
+        "Levothyroxine - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "levothyroxine"
+      ],
+      "expected_keywords": [
+        "absorption",
+        "separate",
+        "hours"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2930.074453353882,
+      "generation_time_ms": 1451.0164260864258,
+      "total_time_ms": 4381.090879440308,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC008",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Can I take metoprolol with amlodipine?",
+      "answer": "Yes, metoprolol can be administered with amlodipine. The combination of these two medications is often used in clinical practice to manage hypertension and angina. Metoprolol is a beta-blocker that helps reduce heart rate and blood pressure, while amlodipine is a calcium channel blocker that acts as a peripheral arterial vasodilator, lowering blood pressure through vasodilation [Source 2][Source 5].\n\nHowever, it is important to monitor for potential side effects, as the concomitant use of beta-b...",
+      "retrieved_sources": [
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Amlodipine - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "metoprolol",
+        "amlodipine"
+      ],
+      "expected_keywords": [
+        "blood pressure",
+        "heart rate",
+        "bradycardia"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2858.6764335632324,
+      "generation_time_ms": 2766.679286956787,
+      "total_time_ms": 5625.3557205200195,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC009",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Does gabapentin interact with opioids?",
+      "answer": "Yes, gabapentin does interact with opioids. The coadministration of gabapentin with opioids, such as morphine, hydrocodone, oxycodone, and buprenorphine, can lead to increased concentrations of gabapentin and may enhance the risk of respiratory depression and sedation. These effects can sometimes result in serious outcomes, including death. Therefore, patients taking gabapentin alongside opioids should be closely monitored for signs of central nervous system (CNS) depression, such as somnolence ...",
+      "retrieved_sources": [
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "gabapentin"
+      ],
+      "expected_keywords": [
+        "CNS",
+        "depression",
+        "respiratory"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 3650.8545875549316,
+      "generation_time_ms": 2767.047882080078,
+      "total_time_ms": 6417.90246963501,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC010",
+      "category": "drug_interactions",
+      "difficulty": "easy",
+      "query": "Can I drink grapefruit juice with atorvastatin?",
+      "answer": "It is recommended to avoid consuming large quantities of grapefruit juice (more than 1.2 liters daily) while taking atorvastatin. Excessive grapefruit juice consumption can raise the plasma levels of atorvastatin, increasing the risk of myopathy and rhabdomyolysis. Therefore, it's important to limit grapefruit juice intake while on this medication to mitigate these risks [Source 1][Source 2].",
+      "retrieved_sources": [
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "atorvastatin"
+      ],
+      "expected_keywords": [
+        "avoid",
+        "increase",
+        "levels"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 3795.513868331909,
+      "generation_time_ms": 1332.9873085021973,
+      "total_time_ms": 5128.501176834106,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC011",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Does prednisone interact with NSAIDs like ibuprofen?",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Naproxen - FDA Drug Label",
+        "Ibuprofen",
+        "Naproxen - FDA Drug Label",
+        "Naproxen - FDA Drug Label",
+        "Naproxen - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "prednisone",
+        "ibuprofen"
+      ],
+      "expected_keywords": [
+        "bleeding",
+        "GI",
+        "ulcer",
+        "stomach"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 3426.1324405670166,
+      "generation_time_ms": 560.5144500732422,
+      "total_time_ms": 3986.646890640259,
+      "mrr": 0.5,
+      "recall_at_k": 0.5,
+      "precision_at_k": 0.2,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.00"
+    },
+    {
+      "test_id": "TC012",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Can I take ciprofloxacin with antacids?",
+      "answer": "Ciprofloxacin ophthalmic solution is specifically for use in the eye and does not have documented interactions with antacids in the context of its ophthalmic use. However, it is important to note that systemic administration of ciprofloxacin (oral form) can interact with antacids, as they may delay the absorption of the medication. Therefore, if you are using ciprofloxacin in the eye, you generally do not need to worry about interactions with antacids. \n\nFor any concerns regarding the use of cip...",
+      "retrieved_sources": [
+        "Ciprofloxacin - FDA Drug Label",
+        "Naproxen - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "ciprofloxacin"
+      ],
+      "expected_keywords": [
+        "absorption",
+        "separate",
+        "avoid"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 4580.8351039886475,
+      "generation_time_ms": 2456.2582969665527,
+      "total_time_ms": 7037.0934009552,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.33"
+    },
+    {
+      "test_id": "TC013",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Does losartan interact with potassium supplements?",
+      "answer": "Losartan does not have any clinically significant drug interactions with potassium supplements specifically mentioned in the available sources. However, it is important to note that losartan is often used in combination with other medications that can affect potassium levels. For instance, when losartan is used with potassium-sparing diuretics or potassium supplements, there is a potential for significant increases in serum potassium levels. Therefore, if potassium supplements are indicated for ...",
+      "retrieved_sources": [
+        "Losartan - FDA Drug Label",
+        "Losartan - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Losartan - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "losartan"
+      ],
+      "expected_keywords": [
+        "potassium",
+        "hyperkalemia",
+        "high"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 3454.5366764068604,
+      "generation_time_ms": 2151.2200832366943,
+      "total_time_ms": 5605.756759643555,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC014",
+      "category": "drug_interactions",
+      "difficulty": "easy",
+      "query": "Can I take alprazolam with alcohol?",
+      "answer": "No, it is not safe to take alprazolam with alcohol. The concomitant use of benzodiazepines, including alprazolam, and alcohol can lead to profound sedation, respiratory depression, coma, and even death. It is crucial to reserve the prescribing of these medications together for patients for whom alternative treatment options are inadequate and to limit dosages and durations to the minimum required. Patients should be closely monitored for signs and symptoms of respiratory depression and sedation ...",
+      "retrieved_sources": [
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "alprazolam"
+      ],
+      "expected_keywords": [
+        "CNS",
+        "depression",
+        "avoid",
+        "dangerous"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2457.953929901123,
+      "generation_time_ms": 2028.5758972167969,
+      "total_time_ms": 4486.52982711792,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.25,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.25"
+    },
+    {
+      "test_id": "TC015",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Does amoxicillin interact with birth control pills?",
+      "answer": "Yes, amoxicillin can interact with birth control pills. The use of amoxicillin and clavulanate potassium may affect intestinal flora, which can lead to lower estrogen reabsorption and potentially reduce the efficacy of combined oral estrogen/progesterone contraceptives. Therefore, it is advisable to consider alternative or additional contraceptive methods while taking amoxicillin and clavulanate potassium [Source 1].",
+      "retrieved_sources": [
+        "Amoxicillin - FDA Drug Label",
+        "Amoxicillin - FDA Drug Label",
+        "Amoxicillin - FDA Drug Label",
+        "Amoxicillin - FDA Drug Label",
+        "Amoxicillin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "amoxicillin"
+      ],
+      "expected_keywords": [
+        "effectiveness",
+        "contraceptive"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2455.526828765869,
+      "generation_time_ms": 2114.2563819885254,
+      "total_time_ms": 4569.7832107543945,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.5,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC016",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Can I take furosemide with lisinopril?",
+      "answer": "Furosemide can be taken with lisinopril; however, caution is advised. The combination may lead to severe hypotension and deterioration in renal function, including renal failure. Therefore, monitoring and possibly adjusting the dosages of furosemide and lisinopril may be necessary when these medications are used together [Source 1][Source 2][Source 4]. Always consult a healthcare provider for personalized advice and monitoring when using these medications concurrently.",
+      "retrieved_sources": [
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Furosemide - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "furosemide",
+        "lisinopril"
+      ],
+      "expected_keywords": [
+        "blood pressure",
+        "potassium",
+        "monitor"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2521.026372909546,
+      "generation_time_ms": 2153.865337371826,
+      "total_time_ms": 4674.891710281372,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.33"
+    },
+    {
+      "test_id": "TC017",
+      "category": "drug_interactions",
+      "difficulty": "hard",
+      "query": "Does azithromycin prolong QT interval with other medications?",
+      "answer": "Yes, azithromycin can prolong the QT interval, particularly when co-administered with other medications that also affect the QT interval. In a study, the co-administration of azithromycin with chloroquine was shown to increase the QTc interval in a dose- and concentration-dependent manner. Specifically, the maximum mean increases in QTcF were observed with doses of azithromycin at 500 mg, 1000 mg, and 1500 mg, indicating a potential risk for QT prolongation when used with other drugs that have s...",
+      "retrieved_sources": [
+        "Azithromycin - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Azithromycin - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "azithromycin"
+      ],
+      "expected_keywords": [
+        "QT",
+        "arrhythmia",
+        "cardiac"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2668.165683746338,
+      "generation_time_ms": 3715.3680324554443,
+      "total_time_ms": 6383.533716201782,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.4,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.33"
+    },
+    {
+      "test_id": "TC018",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Can metformin and glipizide be taken together?",
+      "answer": "Yes, metformin and glipizide can be taken together. This combination is often used in the management of type 2 diabetes mellitus to improve glycemic control. Metformin works primarily by decreasing hepatic glucose production and improving insulin sensitivity, while glipizide, a sulfonylurea, increases insulin secretion from the pancreas. \n\nWhen used together, these medications can have complementary effects on blood glucose levels. However, it is important to monitor for potential hypoglycemia, ...",
+      "retrieved_sources": [
+        "Metformin - FDA Drug Label",
+        "Metformin - FDA Drug Label",
+        "Glipizide - FDA Drug Label",
+        "Glipizide - FDA Drug Label",
+        "Metformin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "metformin",
+        "glipizide"
+      ],
+      "expected_keywords": [
+        "combination",
+        "hypoglycemia",
+        "blood sugar"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2676.5358448028564,
+      "generation_time_ms": 2738.16180229187,
+      "total_time_ms": 5414.697647094727,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC019",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Does aspirin interact with other blood thinners?",
+      "answer": "Yes, aspirin does interact with other blood thinners, significantly increasing the risk of bleeding. Specifically, when taken in conjunction with warfarin and other anticoagulants, the bleeding risk is heightened. This is due to the synergistic effect of these medications on hemostasis, which can lead to serious bleeding complications [Source 1][Source 4]. \n\nIt is important for individuals taking blood thinners to consult their healthcare provider before using aspirin to ensure safe management o...",
+      "retrieved_sources": [
+        "Aspirin",
+        "Ibuprofen",
+        "Naproxen - FDA Drug Label",
+        "Naproxen - FDA Drug Label",
+        "Aspirin"
+      ],
+      "expected_sources": [
+        "aspirin",
+        "warfarin"
+      ],
+      "expected_keywords": [
+        "bleeding",
+        "risk",
+        "anticoagulant"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2453.425645828247,
+      "generation_time_ms": 2318.6187744140625,
+      "total_time_ms": 4772.04442024231,
+      "mrr": 1.0,
+      "recall_at_k": 0.5,
+      "precision_at_k": 0.4,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC020",
+      "category": "drug_interactions",
+      "difficulty": "medium",
+      "query": "Can I take naproxen with hydrochlorothiazide?",
+      "answer": "The concomitant use of naproxen with hydrochlorothiazide is not generally recommended without careful monitoring. Non-steroidal anti-inflammatory drugs (NSAIDs) like naproxen can reduce the diuretic, natriuretic, and antihypertensive effects of thiazide diuretics, which includes hydrochlorothiazide. Therefore, when these medications are used together, patients should be observed closely to ensure that the desired effects of hydrochlorothiazide are achieved and to monitor for any signs of worseni...",
+      "retrieved_sources": [
+        "Naproxen - FDA Drug Label",
+        "Naproxen - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Naproxen - FDA Drug Label",
+        "Naproxen - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "naproxen",
+        "hydrochlorothiazide"
+      ],
+      "expected_keywords": [
+        "blood pressure",
+        "kidney",
+        "effectiveness"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2380.5785179138184,
+      "generation_time_ms": 2428.710460662842,
+      "total_time_ms": 4809.28897857666,
+      "mrr": 1.0,
+      "recall_at_k": 0.5,
+      "precision_at_k": 0.8,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.00"
+    },
+    {
+      "test_id": "TC021",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "What are the common side effects of metformin?",
+      "answer": "The common side effects of metformin include:\n\n- Nausea and vomiting\n- Diarrhea\n- Stomach pain\n- Loss of appetite\n- Metallic taste in the mouth\n\nThese side effects are typically mild and may improve over time. Taking metformin with food can help reduce stomach-related side effects [Source 1].",
+      "retrieved_sources": [
+        "Metformin",
+        "Metformin - FDA Drug Label",
+        "Metformin - FDA Drug Label",
+        "Metformin",
+        "Metformin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "metformin"
+      ],
+      "expected_keywords": [
+        "nausea",
+        "diarrhea",
+        "stomach",
+        "GI"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2389.618396759033,
+      "generation_time_ms": 1186.6514682769775,
+      "total_time_ms": 3576.2698650360107,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.75,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC022",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "What are the side effects of lisinopril?",
+      "answer": "Lisinopril, an ACE inhibitor used to treat high blood pressure, heart failure, and to improve survival after a heart attack, has several common and serious side effects.\n\n**Common Side Effects:**\n- Dry, persistent cough\n- Dizziness or lightheadedness\n- Headache\n- Fatigue\n- Nausea\n\nThe dry cough is particularly notable as it is a common class effect of ACE inhibitors and may necessitate switching to a different medication if it becomes bothersome [Source 1].\n\n**Serious Side Effects:**\n- Angioedem...",
+      "retrieved_sources": [
+        "Lisinopril",
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "lisinopril"
+      ],
+      "expected_keywords": [
+        "cough",
+        "dizziness"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2835.078716278076,
+      "generation_time_ms": 3914.4794940948486,
+      "total_time_ms": 6749.558210372925,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC023",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "Does atorvastatin cause muscle pain?",
+      "answer": "Yes, atorvastatin can cause muscle pain as an adverse reaction. In clinical trials, myalgia (muscle pain) was reported in 3.5% of patients treated with atorvastatin, which is higher than the incidence in the placebo group. Additionally, musculoskeletal pain was reported in 3.8% of patients treated with atorvastatin, also exceeding the rates seen in placebo [Source 2][Source 3]. \n\nIf you are experiencing muscle pain while taking atorvastatin, it is important to consult your healthcare provider fo...",
+      "retrieved_sources": [
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "atorvastatin"
+      ],
+      "expected_keywords": [
+        "muscle",
+        "myalgia",
+        "pain"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2204.4200897216797,
+      "generation_time_ms": 2834.9311351776123,
+      "total_time_ms": 5039.351224899292,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC024",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "What are the side effects of gabapentin?",
+      "answer": "Gabapentin can cause a variety of side effects, which may vary in frequency and severity among patients. The most commonly reported side effects include:\n\n1. **Dizziness**: This is frequently reported and can lead to discontinuation of the medication.\n2. **Somnolence (drowsiness)**: Also a common side effect, it may affect daily activities.\n3. **Peripheral Edema**: Swelling due to fluid retention can occur.\n4. **Nausea**: Some patients may experience gastrointestinal discomfort.\n5. **Ataxia**: T...",
+      "retrieved_sources": [
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "gabapentin"
+      ],
+      "expected_keywords": [
+        "drowsiness",
+        "dizziness",
+        "fatigue"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2516.6518688201904,
+      "generation_time_ms": 4384.34624671936,
+      "total_time_ms": 6900.998115539551,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC025",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "Does prednisone cause weight gain?",
+      "answer": "I don't have information about that in my knowledge base. However, it is known that corticosteroids, including prednisone, can lead to weight gain as a side effect due to various factors such as increased appetite, fluid retention, and changes in metabolism. For specific concerns regarding weight gain and prednisone, it is best to consult a healthcare provider.",
+      "retrieved_sources": [
+        "Prednisone - FDA Drug Label",
+        "Prednisone - FDA Drug Label",
+        "Prednisone - FDA Drug Label",
+        "Prednisone - FDA Drug Label",
+        "Sertraline - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "prednisone"
+      ],
+      "expected_keywords": [
+        "weight",
+        "gain",
+        "appetite"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2459.911823272705,
+      "generation_time_ms": 1479.5894622802734,
+      "total_time_ms": 3939.5012855529785,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC026",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "What are the side effects of sertraline?",
+      "answer": "Sertraline can cause a range of side effects, which may vary in incidence and severity. Commonly reported adverse reactions include:\n\n1. **Gastrointestinal Issues**: Nausea, diarrhea, and dry mouth.\n2. **Central Nervous System Effects**: Dizziness, insomnia, and fatigue.\n3. **Sexual Dysfunction**: This includes ejaculation failure (primarily delayed ejaculation) reported in 14% of male patients, and decreased libido in 6% of both male and female patients [Source 2].\n4. **Other Adverse Events**: ...",
+      "retrieved_sources": [
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "sertraline"
+      ],
+      "expected_keywords": [
+        "nausea",
+        "insomnia",
+        "sexual"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2455.021381378174,
+      "generation_time_ms": 4658.493995666504,
+      "total_time_ms": 7113.515377044678,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC027",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "Does amlodipine cause ankle swelling?",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Amlodipine - FDA Drug Label",
+        "Amlodipine - FDA Drug Label",
+        "Amlodipine - FDA Drug Label",
+        "Amlodipine - FDA Drug Label",
+        "Amlodipine - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "amlodipine"
+      ],
+      "expected_keywords": [
+        "edema",
+        "swelling",
+        "peripheral"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2693.4549808502197,
+      "generation_time_ms": 473.496675491333,
+      "total_time_ms": 3166.9516563415527,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.00"
+    },
+    {
+      "test_id": "TC028",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "What are the serious side effects of warfarin?",
+      "answer": "The serious side effects of warfarin include:\n\n1. **Major bleeding**: This can manifest as internal bleeding, blood in urine or stool, or bleeding in the brain (which may present with stroke symptoms).\n2. **Skin necrosis**: This is a rare but serious condition where skin tissue dies.\n3. **Purple toe syndrome**: A condition characterized by discoloration of the toes.\n4. **Acute kidney injury**: This can occur as a result of bleeding or other complications.\n5. **Tissue necrosis**: This may occur i...",
+      "retrieved_sources": [
+        "Warfarin",
+        "Warfarin - FDA Drug Label",
+        "Warfarin - FDA Drug Label",
+        "Warfarin - FDA Drug Label",
+        "Warfarin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "warfarin"
+      ],
+      "expected_keywords": [
+        "bleeding",
+        "hemorrhage"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2532.7343940734863,
+      "generation_time_ms": 3149.186372756958,
+      "total_time_ms": 5681.920766830444,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.5,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC029",
+      "category": "adverse_reactions",
+      "difficulty": "medium",
+      "query": "Does omeprazole cause any long-term side effects?",
+      "answer": "I don't have information about long-term side effects of omeprazole in my knowledge base. The available sources primarily focus on warnings, contraindications, and general information regarding the drug's use. For concerns about long-term side effects, it's best to consult a healthcare provider.",
+      "retrieved_sources": [
+        "Omeprazole - FDA Drug Label",
+        "Omeprazole - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Azithromycin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "omeprazole"
+      ],
+      "expected_keywords": [
+        "bone",
+        "magnesium",
+        "vitamin B12",
+        "deficiency"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 3324.563503265381,
+      "generation_time_ms": 1958.6970806121826,
+      "total_time_ms": 5283.2605838775635,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.4,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.00"
+    },
+    {
+      "test_id": "TC030",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "What are the side effects of alprazolam?",
+      "answer": "Alprazolam may cause a variety of side effects, which can be categorized into common and serious reactions. \n\n### Common Side Effects:\n1. **Nervous System Disorders**: Drowsiness, light-headedness, dizziness, insomnia, headache, and impaired coordination.\n2. **Gastrointestinal Disorders**: Dry mouth, nausea, vomiting, diarrhea, and decreased salivation.\n3. **Psychiatric Disorders**: Anxiety, fatigue, irritability, cognitive disorders, and memory impairment.\n4. **Metabolism and Nutrition Disorder...",
+      "retrieved_sources": [
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "alprazolam"
+      ],
+      "expected_keywords": [
+        "drowsiness",
+        "sedation",
+        "dependence"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2481.5115928649902,
+      "generation_time_ms": 5195.555686950684,
+      "total_time_ms": 7677.067279815674,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.33"
+    },
+    {
+      "test_id": "TC031",
+      "category": "adverse_reactions",
+      "difficulty": "medium",
+      "query": "Does fluoxetine cause weight changes?",
+      "answer": "Yes, fluoxetine can cause weight changes. In pediatric patients, decreased weight gain has been observed in association with the use of fluoxetine. Specifically, after 19 weeks of treatment in a clinical trial, pediatric subjects treated with fluoxetine gained an average of 1.1 kg less in weight compared to those treated with placebo. Additionally, there was a reported decrease in height gain of approximately 1.1 cm in fluoxetine-treated patients compared to placebo-treated patients. Therefore, ...",
+      "retrieved_sources": [
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "fluoxetine"
+      ],
+      "expected_keywords": [
+        "weight",
+        "appetite"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2753.1392574310303,
+      "generation_time_ms": 3214.8635387420654,
+      "total_time_ms": 5968.002796173096,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.5,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC032",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "What are the side effects of metoprolol?",
+      "answer": "Metoprolol can cause a variety of side effects. Common gastrointestinal side effects include diarrhea (occurring in about 5% of patients), nausea, dry mouth, gastric pain, constipation, flatulence, and heartburn (each occurring in about 1% of patients). Vomiting has also been reported as a common occurrence [Source 4].\n\nHypersensitive reactions may include pruritus or rash (about 5% of patients), photosensitivity, and worsening of psoriasis. Other miscellaneous side effects reported include Peyr...",
+      "retrieved_sources": [
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "metoprolol"
+      ],
+      "expected_keywords": [
+        "fatigue",
+        "bradycardia",
+        "dizziness"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2501.652956008911,
+      "generation_time_ms": 4102.097034454346,
+      "total_time_ms": 6603.749990463257,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.33"
+    },
+    {
+      "test_id": "TC033",
+      "category": "adverse_reactions",
+      "difficulty": "medium",
+      "query": "Does ciprofloxacin cause tendon problems?",
+      "answer": "Ciprofloxacin, like other fluoroquinolone antibiotics, has been associated with an increased risk of tendon problems, including tendonitis and tendon rupture. This risk is particularly noted in certain populations, such as older adults and those who are concurrently taking corticosteroids. However, the specific context documents provided do not explicitly mention tendon problems related to ciprofloxacin, focusing instead on its ophthalmic use and safety in various populations.\n\nFor detailed info...",
+      "retrieved_sources": [
+        "Ciprofloxacin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "ciprofloxacin"
+      ],
+      "expected_keywords": [
+        "tendon",
+        "rupture",
+        "tendinitis"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2690.16170501709,
+      "generation_time_ms": 1863.5461330413818,
+      "total_time_ms": 4553.707838058472,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC034",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "What are the GI side effects of ibuprofen?",
+      "answer": "The gastrointestinal (GI) side effects of ibuprofen can include:\n\n- Stomach upset and heartburn\n- Nausea\n- Increased risk of stomach ulcers and bleeding, especially in elderly individuals or those with a history of stomach problems\n- Severe stomach bleeding, which may occur if the medication is taken for longer than directed, in conjunction with blood thinners or steroids, or if the individual consumes three or more alcoholic drinks daily while using ibuprofen [Source 1][Source 3].\n\nTaking ibupr...",
+      "retrieved_sources": [
+        "Ibuprofen",
+        "Ibuprofen",
+        "Ibuprofen - FDA Drug Label",
+        "Naproxen - FDA Drug Label",
+        "Aspirin"
+      ],
+      "expected_sources": [
+        "ibuprofen"
+      ],
+      "expected_keywords": [
+        "stomach",
+        "ulcer",
+        "bleeding",
+        "GI"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2386.681318283081,
+      "generation_time_ms": 2522.97306060791,
+      "total_time_ms": 4909.654378890991,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC035",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "Does losartan cause dizziness?",
+      "answer": "Yes, dizziness is a common adverse reaction associated with losartan. In clinical trials, dizziness occurred in approximately 3% of patients treated with losartan, compared to 2% in those receiving placebo [Source 1]. If you experience dizziness while taking losartan, it is advisable to consult your healthcare provider for further evaluation and guidance.",
+      "retrieved_sources": [
+        "Losartan - FDA Drug Label",
+        "Losartan - FDA Drug Label",
+        "Losartan - FDA Drug Label",
+        "Losartan - FDA Drug Label",
+        "Losartan - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "losartan"
+      ],
+      "expected_keywords": [
+        "dizziness",
+        "hypotension"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2445.3916549682617,
+      "generation_time_ms": 2537.381649017334,
+      "total_time_ms": 4982.773303985596,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.5,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC036",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "What are the side effects of amoxicillin?",
+      "answer": "The most frequently reported side effects of amoxicillin include:\n\n- Diarrhea/loose stools (9%)\n- Nausea (3%)\n- Skin rashes and urticaria (3%)\n- Vomiting (1%)\n- Vaginitis (1%)\n\nLess common side effects (reported in less than 1% of patients) include abdominal discomfort, flatulence, and headache [Source 2]. \n\nIn addition to these, postmarketing experience has identified other adverse reactions, including:\n\n- Gastrointestinal issues such as indigestion, gastritis, and pseudomembranous colitis\n- Im...",
+      "retrieved_sources": [
+        "Amoxicillin - FDA Drug Label",
+        "Amoxicillin - FDA Drug Label",
+        "Amoxicillin - FDA Drug Label",
+        "Amoxicillin - FDA Drug Label",
+        "Amoxicillin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "amoxicillin"
+      ],
+      "expected_keywords": [
+        "rash",
+        "diarrhea",
+        "nausea"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2280.1663875579834,
+      "generation_time_ms": 3421.3016033172607,
+      "total_time_ms": 5701.467990875244,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC037",
+      "category": "adverse_reactions",
+      "difficulty": "medium",
+      "query": "Does furosemide cause electrolyte imbalances?",
+      "answer": "Yes, furosemide can cause electrolyte imbalances. It is a potent diuretic that may lead to excessive diuresis, resulting in dehydration and blood volume reduction. This can particularly affect electrolyte levels, leading to conditions such as hypokalemia (low potassium levels), hypomagnesemia (low magnesium levels), and hypocalcemia (low calcium levels) [Source 2][Source 4]. \n\nPatients receiving furosemide therapy should be monitored for signs of fluid or electrolyte imbalance, which may include...",
+      "retrieved_sources": [
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "furosemide"
+      ],
+      "expected_keywords": [
+        "potassium",
+        "electrolyte",
+        "hypokalemia"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 3262.9008293151855,
+      "generation_time_ms": 4118.393421173096,
+      "total_time_ms": 7381.294250488281,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC038",
+      "category": "adverse_reactions",
+      "difficulty": "medium",
+      "query": "What are the neurological side effects of glipizide?",
+      "answer": "Glipizide may cause neurological side effects, although they are generally transient and not very common. The reported neurological adverse reactions include dizziness, drowsiness, and headache, each occurring in about one in fifty patients treated with glipizide [Source 2]. These effects are usually mild and seldom require discontinuation of therapy. \n\nAdditionally, severe hypoglycemic reactions, which can include neurological impairment such as coma or seizures, are considered medical emergenc...",
+      "retrieved_sources": [
+        "Glipizide - FDA Drug Label",
+        "Glipizide - FDA Drug Label",
+        "Glipizide - FDA Drug Label",
+        "Glipizide - FDA Drug Label",
+        "Glipizide - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "glipizide"
+      ],
+      "expected_keywords": [
+        "hypoglycemia",
+        "dizziness",
+        "confusion"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 4615.642786026001,
+      "generation_time_ms": 1849.355936050415,
+      "total_time_ms": 6464.998722076416,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.33"
+    },
+    {
+      "test_id": "TC039",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "Does albuterol cause heart racing?",
+      "answer": "Yes, albuterol can cause heart racing, also known as tachycardia. As a beta-adrenergic agonist, albuterol stimulates beta-adrenergic receptors, which can lead to cardiovascular effects, including an increase in pulse rate. Clinical studies have shown that inhaled albuterol can produce significant cardiovascular effects in some patients, as measured by pulse rate, blood pressure, and symptoms related to heart function [Source 2][Source 3]. \n\nAdditionally, in cases of overdose, excessive beta-adre...",
+      "retrieved_sources": [
+        "Albuterol - FDA Drug Label",
+        "Albuterol - FDA Drug Label",
+        "Albuterol - FDA Drug Label",
+        "Albuterol - FDA Drug Label",
+        "Albuterol - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "albuterol"
+      ],
+      "expected_keywords": [
+        "tachycardia",
+        "palpitations",
+        "tremor"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 4261.118650436401,
+      "generation_time_ms": 2122.4019527435303,
+      "total_time_ms": 6383.520603179932,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.33"
+    },
+    {
+      "test_id": "TC040",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "What are the side effects of hydrochlorothiazide?",
+      "answer": "The side effects of hydrochlorothiazide, as reported in clinical trials involving the combination of lisinopril and hydrochlorothiazide, include several adverse reactions. The most common side effects observed in patients treated with this combination were:\n\n- Dizziness (7.5%)\n- Headache (5.2%)\n- Cough (3.9%)\n- Fatigue (3.7%)\n- Orthostatic effects (3.2%)\n\nOther adverse experiences occurring in greater than 1% of patients included diarrhea (2.5%), nausea (2.2%), upper respiratory infection (2.2%)...",
+      "retrieved_sources": [
+        "Lisinopril - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Lisinopril - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "hydrochlorothiazide"
+      ],
+      "expected_keywords": [
+        "electrolyte",
+        "potassium",
+        "dizziness"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2928.966283798218,
+      "generation_time_ms": 4298.184871673584,
+      "total_time_ms": 7227.151155471802,
+      "mrr": 0.5,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.4,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.33"
+    },
+    {
+      "test_id": "TC041",
+      "category": "contraindications",
+      "difficulty": "easy",
+      "query": "Who should not take metformin?",
+      "answer": "Metformin should not be taken by individuals who have the following conditions:\n\n1. **Kidney disease**: It is contraindicated in patients with an estimated glomerular filtration rate (eGFR) below 30 mL/min/1.73 m\u00b2, and not recommended for those with an eGFR between 30 and 45 mL/min/1.73 m\u00b2 due to the need for lower dosages of sitagliptin than what is available in the fixed combination product [Source 2].\n\n2. **Liver disease**: Patients with liver disease should avoid metformin due to the increas...",
+      "retrieved_sources": [
+        "Metformin",
+        "Metformin - FDA Drug Label",
+        "Metformin",
+        "Metformin - FDA Drug Label",
+        "Metformin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "metformin"
+      ],
+      "expected_keywords": [
+        "kidney",
+        "renal",
+        "impairment"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2495.4700469970703,
+      "generation_time_ms": 4766.642808914185,
+      "total_time_ms": 7262.112855911255,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC042",
+      "category": "contraindications",
+      "difficulty": "easy",
+      "query": "When is lisinopril contraindicated?",
+      "answer": "Lisinopril is contraindicated in the following situations:\n\n1. **Hypersensitivity**: Patients who are hypersensitive to any component of lisinopril or have a history of angioedema related to previous treatment with an angiotensin-converting enzyme (ACE) inhibitor are contraindicated.\n\n2. **Hereditary or Idiopathic Angioedema**: Patients with a history of hereditary or idiopathic angioedema should not use lisinopril.\n\n3. **Anuria**: The use of lisinopril is contraindicated in patients with anuria...",
+      "retrieved_sources": [
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "lisinopril"
+      ],
+      "expected_keywords": [
+        "pregnancy",
+        "angioedema"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2436.002254486084,
+      "generation_time_ms": 4080.709934234619,
+      "total_time_ms": 6516.712188720703,
+      "mrr": 0.5,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.4,
+      "keyword_match_score": 0.5,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC043",
+      "category": "contraindications",
+      "difficulty": "easy",
+      "query": "Who should avoid taking warfarin?",
+      "answer": "Warfarin should be avoided by the following individuals:\n\n1. **Pregnant Women**: Warfarin can cause birth defects and fetal harm, including major congenital malformations and increased risk of miscarriage [Source 5].\n\n2. **People with Active Bleeding**: Those experiencing active bleeding should not take warfarin due to the increased risk of further bleeding complications [Source 1].\n\n3. **Individuals with Recent Surgery**: Patients who have recently undergone surgery should avoid warfarin to pre...",
+      "retrieved_sources": [
+        "Warfarin",
+        "Warfarin - FDA Drug Label",
+        "Warfarin - FDA Drug Label",
+        "Aspirin",
+        "Warfarin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "warfarin"
+      ],
+      "expected_keywords": [
+        "bleeding",
+        "pregnancy"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2534.3291759490967,
+      "generation_time_ms": 2916.5587425231934,
+      "total_time_ms": 5450.88791847229,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "keyword_match_score": 0.5,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC044",
+      "category": "contraindications",
+      "difficulty": "medium",
+      "query": "When should ibuprofen not be used?",
+      "answer": "Ibuprofen should not be used in the following situations:\n\n1. **Pregnancy**: It is especially important not to use ibuprofen at 20 weeks or later in pregnancy unless directed by a doctor, as it may cause problems in the unborn child or complications during delivery [Source 1].\n\n2. **Allergic Reactions**: Individuals who have had a severe allergic reaction to ibuprofen, aspirin, or other NSAIDs should avoid using it. Symptoms of a severe allergic reaction may include rash, facial swelling, asthma...",
+      "retrieved_sources": [
+        "Ibuprofen - FDA Drug Label",
+        "Ibuprofen",
+        "Aspirin - FDA Drug Label",
+        "Ibuprofen",
+        "Ibuprofen - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "ibuprofen"
+      ],
+      "expected_keywords": [
+        "GI",
+        "bleeding",
+        "kidney",
+        "aspirin allergy"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2642.4739360809326,
+      "generation_time_ms": 4414.984703063965,
+      "total_time_ms": 7057.4586391448975,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "keyword_match_score": 0.75,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC045",
+      "category": "contraindications",
+      "difficulty": "medium",
+      "query": "Who should not take alprazolam?",
+      "answer": "Alprazolam should not be taken by patients who meet the following criteria:\n\n1. **Known Hypersensitivity**: Individuals with a known hypersensitivity to alprazolam or other benzodiazepines are contraindicated from using this medication. There have been reports of angioedema associated with its use [Source 1].\n\n2. **Concomitant Use with Strong CYP3A Inhibitors**: Patients taking strong cytochrome P450 3A (CYP3A) inhibitors (such as ketoconazole or itraconazole) should not use alprazolam, except w...",
+      "retrieved_sources": [
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "alprazolam"
+      ],
+      "expected_keywords": [
+        "glaucoma",
+        "respiratory",
+        "sleep apnea"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2971.9791412353516,
+      "generation_time_ms": 2781.007766723633,
+      "total_time_ms": 5752.986907958984,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.00"
+    },
+    {
+      "test_id": "TC046",
+      "category": "contraindications",
+      "difficulty": "medium",
+      "query": "Is metoprolol contraindicated in asthma?",
+      "answer": "I don't have information about that in my knowledge base. However, it is important to note that metoprolol is a beta 1-selective adrenergic receptor blocker, which means it preferentially affects the heart and has less impact on the beta 2 receptors found in the bronchial tissues compared to non-selective beta-blockers. While it may be better tolerated in asthmatic patients than non-selective beta-blockers, caution is still advised. Always consult a healthcare provider for specific medical advic...",
+      "retrieved_sources": [
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "metoprolol"
+      ],
+      "expected_keywords": [
+        "asthma",
+        "bronchospasm",
+        "caution"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2516.9169902801514,
+      "generation_time_ms": 2300.0082969665527,
+      "total_time_ms": 4816.925287246704,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC047",
+      "category": "contraindications",
+      "difficulty": "medium",
+      "query": "When should ciprofloxacin be avoided?",
+      "answer": "Ciprofloxacin should be avoided in the following situations:\n\n1. **Hypersensitivity**: It is contraindicated in individuals with a history of hypersensitivity to ciprofloxacin or any other component of the medication. Additionally, a history of hypersensitivity to other quinolones may also contraindicate its use [Source 2].\n\n2. **Prolonged Use**: Prolonged use of ciprofloxacin may lead to the overgrowth of nonsusceptible organisms, including fungi. If a superinfection occurs, appropriate therapy...",
+      "retrieved_sources": [
+        "Ciprofloxacin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "ciprofloxacin"
+      ],
+      "expected_keywords": [
+        "tendon",
+        "myasthenia gravis"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2676.9869327545166,
+      "generation_time_ms": 3401.5371799468994,
+      "total_time_ms": 6078.524112701416,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.00"
+    },
+    {
+      "test_id": "TC048",
+      "category": "contraindications",
+      "difficulty": "easy",
+      "query": "Who should not take atorvastatin?",
+      "answer": "Atorvastatin should not be taken by individuals who are:\n\n1. **Pregnant**: Atorvastatin may cause fetal harm, and it is recommended to discontinue the medication upon recognition of pregnancy. Treatment for hyperlipidemia is generally not necessary during pregnancy [Source 1].\n\n2. **Breastfeeding**: The use of atorvastatin is not recommended during lactation due to potential risks [Source 1].\n\n3. **Allergic to Atorvastatin**: Individuals with a known hypersensitivity to atorvastatin or any of it...",
+      "retrieved_sources": [
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "atorvastatin"
+      ],
+      "expected_keywords": [
+        "liver",
+        "hepatic",
+        "pregnancy"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2689.539909362793,
+      "generation_time_ms": 4743.7005043029785,
+      "total_time_ms": 7433.2404136657715,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC049",
+      "category": "contraindications",
+      "difficulty": "medium",
+      "query": "Is prednisone contraindicated in any conditions?",
+      "answer": "Prednisone is contraindicated in several conditions, including:\n\n1. **Severe bradycardia**: This includes greater than first-degree heart block or sick sinus syndrome without a pacemaker.\n2. **Cardiogenic shock**: Patients experiencing this condition should not use prednisone.\n3. **Decompensated heart failure**: Prednisone is contraindicated in patients with this condition.\n4. **Hypersensitivity**: Individuals who are hypersensitive to any component of prednisone should avoid its use.\n\nAdditiona...",
+      "retrieved_sources": [
+        "Prednisone - FDA Drug Label",
+        "Prednisone - FDA Drug Label",
+        "Prednisone - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Prednisone - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "prednisone"
+      ],
+      "expected_keywords": [
+        "infection",
+        "fungal",
+        "immunocompromised"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2641.0703659057617,
+      "generation_time_ms": 3385.8120441436768,
+      "total_time_ms": 6026.8824100494385,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.00"
+    },
+    {
+      "test_id": "TC050",
+      "category": "contraindications",
+      "difficulty": "medium",
+      "query": "When should fluoxetine not be prescribed?",
+      "answer": "Fluoxetine should not be prescribed in the following situations:\n\n1. **Hypersensitivity**: Patients with a known hypersensitivity to fluoxetine or any of its components should not use this medication.\n\n2. **Concurrent Use with Thioridazine**: Thioridazine should not be administered with fluoxetine or within a minimum of 5 weeks after discontinuing fluoxetine due to the risk of serious ventricular arrhythmias and sudden death associated with elevated plasma levels of thioridazine [Source 3].\n\n3. ...",
+      "retrieved_sources": [
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "fluoxetine"
+      ],
+      "expected_keywords": [
+        "MAO inhibitor",
+        "pimozide"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2585.7439041137695,
+      "generation_time_ms": 6325.538635253906,
+      "total_time_ms": 8911.282539367676,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.00"
+    },
+    {
+      "test_id": "TC051",
+      "category": "contraindications",
+      "difficulty": "medium",
+      "query": "Who should avoid naproxen?",
+      "answer": "Naproxen should be avoided or used with caution in the following populations:\n\n1. **Pregnant Women**: Particularly in the third trimester, naproxen can cause premature closure of the fetal ductus arteriosus and may impair kidney development in the fetus. It is advised to limit the use of NSAIDs, including naproxen, to the lowest effective dose and shortest duration possible after 20 weeks of gestation, and to avoid use around 30 weeks of gestation or later [Source 4].\n\n2. **Patients with Renal I...",
+      "retrieved_sources": [
+        "Naproxen - FDA Drug Label",
+        "Naproxen - FDA Drug Label",
+        "Naproxen - FDA Drug Label",
+        "Naproxen - FDA Drug Label",
+        "Naproxen - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "naproxen"
+      ],
+      "expected_keywords": [
+        "GI bleeding",
+        "kidney",
+        "heart"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2543.1699752807617,
+      "generation_time_ms": 6581.34388923645,
+      "total_time_ms": 9124.513864517212,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.33"
+    },
+    {
+      "test_id": "TC052",
+      "category": "contraindications",
+      "difficulty": "medium",
+      "query": "Is furosemide contraindicated in sulfa allergy?",
+      "answer": "Furosemide may pose a risk for patients with a sulfonamide allergy. While it is not explicitly contraindicated for those with sulfa allergies, there is a possibility of cross-reactivity, meaning that patients allergic to sulfonamides may also be allergic to furosemide. Therefore, caution is advised when prescribing furosemide to individuals with a known sulfa allergy [Source 2]. \n\nAlways consult a healthcare provider for personalized medical advice and to discuss any concerns regarding allergies...",
+      "retrieved_sources": [
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "furosemide"
+      ],
+      "expected_keywords": [
+        "sulfonamide",
+        "allergy",
+        "caution"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2353.614091873169,
+      "generation_time_ms": 1742.93851852417,
+      "total_time_ms": 4096.552610397339,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC053",
+      "category": "contraindications",
+      "difficulty": "medium",
+      "query": "When should glipizide not be used?",
+      "answer": "Glipizide should not be used in the following situations:\n\n1. **Known Hypersensitivity**: It is contraindicated in patients with a known hypersensitivity to glipizide or any of its components [Source 2].\n\n2. **Type 1 Diabetes Mellitus**: Glipizide is not suitable for patients with type 1 diabetes mellitus, as this condition should be treated with insulin [Source 2].\n\n3. **Diabetic Ketoacidosis**: It is also contraindicated in cases of diabetic ketoacidosis, with or without coma, which should be ...",
+      "retrieved_sources": [
+        "Glipizide - FDA Drug Label",
+        "Glipizide - FDA Drug Label",
+        "Glipizide - FDA Drug Label",
+        "Glipizide - FDA Drug Label",
+        "Glipizide - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "glipizide"
+      ],
+      "expected_keywords": [
+        "type 1",
+        "ketoacidosis",
+        "DKA"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2326.913595199585,
+      "generation_time_ms": 3611.8125915527344,
+      "total_time_ms": 5938.726186752319,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC054",
+      "category": "contraindications",
+      "difficulty": "medium",
+      "query": "Who should not take azithromycin?",
+      "answer": "Azithromycin should not be used in the following patient populations:\n\n1. **Patients with pneumonia** who are judged to be inappropriate for oral therapy due to moderate to severe illness or risk factors. This includes:\n   - Patients with cystic fibrosis\n   - Patients with nosocomial infections\n   - Patients with known or suspected bacteremia\n   - Patients requiring hospitalization\n   - Elderly or debilitated patients\n   - Patients with significant underlying health problems that may compromise ...",
+      "retrieved_sources": [
+        "Azithromycin - FDA Drug Label",
+        "Azithromycin - FDA Drug Label",
+        "Azithromycin - FDA Drug Label",
+        "Azithromycin - FDA Drug Label",
+        "Azithromycin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "azithromycin"
+      ],
+      "expected_keywords": [
+        "liver",
+        "QT",
+        "cardiac"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2507.9238414764404,
+      "generation_time_ms": 3760.9596252441406,
+      "total_time_ms": 6268.883466720581,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.00"
+    },
+    {
+      "test_id": "TC055",
+      "category": "contraindications",
+      "difficulty": "medium",
+      "query": "Is albuterol safe for everyone?",
+      "answer": "Albuterol is generally considered safe for use in many patients, particularly for the treatment of bronchospasm associated with asthma and other obstructive airway diseases. However, its safety can vary based on specific populations and individual health conditions.\n\n1. **General Population**: Albuterol is effective in relaxing airway muscles and is commonly used in adults and children aged 4 years and older. Controlled studies have established its safety and effectiveness in these groups [Sourc...",
+      "retrieved_sources": [
+        "Albuterol - FDA Drug Label",
+        "Albuterol - FDA Drug Label",
+        "Albuterol - FDA Drug Label",
+        "Albuterol - FDA Drug Label",
+        "Albuterol - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "albuterol"
+      ],
+      "expected_keywords": [
+        "heart",
+        "cardiovascular",
+        "arrhythmia"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2603.7752628326416,
+      "generation_time_ms": 5095.9131717681885,
+      "total_time_ms": 7699.68843460083,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC056",
+      "category": "dosage",
+      "difficulty": "easy",
+      "query": "What is the maximum daily dose of ibuprofen?",
+      "answer": "The maximum daily dose of ibuprofen for pediatric patients is 40 mg/kg/day, with a maximum limit of 1200 mg per day. It is important to note that ibuprofen is not recommended for use in children under 6 months of age, and caution should be exercised in patients with renal impairment, active bleeding, or aspirin allergy [Source 1]. Always consult a healthcare provider for specific dosing recommendations.",
+      "retrieved_sources": [
+        "Pediatric Dosing Protocols - Internal Document",
+        "Pediatric Dosing Protocols - Internal Document",
+        "Fluoxetine - FDA Drug Label",
+        "Naproxen - FDA Drug Label",
+        "Pediatric Dosing Protocols - Internal Document"
+      ],
+      "expected_sources": [
+        "ibuprofen"
+      ],
+      "expected_keywords": [
+        "3200",
+        "2400",
+        "mg"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2591.183662414551,
+      "generation_time_ms": 1658.782720565796,
+      "total_time_ms": 4249.966382980347,
+      "mrr": 0.0,
+      "recall_at_k": 0.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": false,
+      "failure_reason": "Retrieval failure: Recall@5=0.00"
+    },
+    {
+      "test_id": "TC057",
+      "category": "dosage",
+      "difficulty": "easy",
+      "query": "How should I take omeprazole?",
+      "answer": "Omeprazole is typically taken orally. It is important to follow the dosing instructions provided by your healthcare provider. Here are some general guidelines based on the FDA drug label:\n\n1. **Administration**: Omeprazole should be taken as directed by your healthcare provider. It is usually taken once daily.\n2. **Timing**: It is often recommended to take omeprazole before meals, preferably in the morning.\n3. **Dosage**: The specific dosage will depend on your condition and should be determined...",
+      "retrieved_sources": [
+        "Omeprazole - FDA Drug Label",
+        "Omeprazole - FDA Drug Label",
+        "Pediatric Dosing Protocols - Internal Document",
+        "Ibuprofen - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "omeprazole"
+      ],
+      "expected_keywords": [
+        "before",
+        "meal",
+        "morning",
+        "empty stomach"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2309.767246246338,
+      "generation_time_ms": 2452.375650405884,
+      "total_time_ms": 4762.142896652222,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.4,
+      "keyword_match_score": 0.75,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC058",
+      "category": "dosage",
+      "difficulty": "easy",
+      "query": "What is the starting dose of metformin?",
+      "answer": "The recommended starting dose of metformin in the combination product ZITUVIMET is 500 mg of metformin hydrochloride (HCl) taken twice daily, along with 50 mg of sitagliptin. For patients already treated with metformin, the starting dose should include the current dose of metformin they are taking, with sitagliptin dosed at 50 mg twice daily (100 mg total daily dose) [Source 1][Source 2]. \n\nIt is important to consult a healthcare provider for personalized dosing recommendations.",
+      "retrieved_sources": [
+        "Metformin - FDA Drug Label",
+        "Metformin - FDA Drug Label",
+        "Metformin - FDA Drug Label",
+        "Metformin - FDA Drug Label",
+        "Metformin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "metformin"
+      ],
+      "expected_keywords": [
+        "500",
+        "mg"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2500.2002716064453,
+      "generation_time_ms": 1815.9639835357666,
+      "total_time_ms": 4316.164255142212,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC059",
+      "category": "dosage",
+      "difficulty": "easy",
+      "query": "What is the typical dose of lisinopril for hypertension?",
+      "answer": "The typical dose of lisinopril for the treatment of hypertension is in the range of 10 mg to 80 mg taken once daily. The exact dose may vary based on individual patient needs and response to therapy. It is important to consult a healthcare provider for personalized dosing recommendations and adjustments based on clinical response [Source 2][Source 4].",
+      "retrieved_sources": [
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "lisinopril"
+      ],
+      "expected_keywords": [
+        "10",
+        "20",
+        "40",
+        "mg"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2500.28133392334,
+      "generation_time_ms": 1545.3135967254639,
+      "total_time_ms": 4045.5949306488037,
+      "mrr": 0.5,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.4,
+      "keyword_match_score": 0.5,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC060",
+      "category": "dosage",
+      "difficulty": "easy",
+      "query": "How often should gabapentin be taken?",
+      "answer": "Gabapentin is typically administered three times a day. The recommended maintenance dose for adults is between 300 mg to 600 mg taken three times daily. In pediatric patients aged 3 to 11 years, the dosing is based on weight and also given in three divided doses. It is important that the maximum time between doses does not exceed 12 hours [Source 1][Source 3][Source 4].\n\nFor specific dosing regimens, especially in cases of renal impairment or other medical conditions, it is crucial to consult a ...",
+      "retrieved_sources": [
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "gabapentin"
+      ],
+      "expected_keywords": [
+        "three",
+        "times",
+        "day",
+        "TID"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2749.8342990875244,
+      "generation_time_ms": 2211.512327194214,
+      "total_time_ms": 4961.346626281738,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.75,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC061",
+      "category": "dosage",
+      "difficulty": "medium",
+      "query": "What is the recommended warfarin dose?",
+      "answer": "The recommended dose of warfarin varies widely among patients and must be individualized based on several factors, including the patient's International Normalized Ratio (INR) response, clinical condition, age, race, body weight, sex, concomitant medications, and comorbidities. \n\nFor initial dosing, if the patient's CYP2C9 and VKORC1 genotypes are not known, the typical starting dose is usually between 2 to 5 mg once daily. Maintenance doses typically range from 2 to 10 mg once daily, depending ...",
+      "retrieved_sources": [
+        "Warfarin - FDA Drug Label",
+        "Warfarin - FDA Drug Label",
+        "Warfarin - FDA Drug Label",
+        "Warfarin - FDA Drug Label",
+        "Warfarin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "warfarin"
+      ],
+      "expected_keywords": [
+        "individualized",
+        "INR",
+        "monitor"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2899.223804473877,
+      "generation_time_ms": 3989.8452758789062,
+      "total_time_ms": 6889.069080352783,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC062",
+      "category": "dosage",
+      "difficulty": "easy",
+      "query": "How should levothyroxine be taken?",
+      "answer": "Levothyroxine should be taken as follows:\n\n1. **Dosage Timing**: Administer levothyroxine sodium tablets once daily, preferably on an empty stomach, one-half to one hour before breakfast. This helps optimize absorption.\n\n2. **Administration Method**: Take the tablets with a full glass of water to avoid choking or gagging.\n\n3. **Avoiding Interactions**: It is important to administer levothyroxine at least 4 hours before or after any medications that may interfere with its absorption. Additionally...",
+      "retrieved_sources": [
+        "Levothyroxine - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "levothyroxine"
+      ],
+      "expected_keywords": [
+        "empty stomach",
+        "morning",
+        "before",
+        "food"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2546.91481590271,
+      "generation_time_ms": 3634.1326236724854,
+      "total_time_ms": 6181.047439575195,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.75,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC063",
+      "category": "dosage",
+      "difficulty": "easy",
+      "query": "What is the usual dose of atorvastatin?",
+      "answer": "The usual dose of atorvastatin varies based on the patient's needs. For adults, the recommended starting dosage is typically 10 mg to 20 mg once daily, with a dosage range of 10 mg to 80 mg once daily. Patients requiring a greater reduction in LDL-C (low-density lipoprotein cholesterol) may start at 40 mg once daily [Source 2]. \n\nFor pediatric patients aged 10 years and older with heterozygous familial hypercholesterolemia (HeFH), the recommended starting dosage is 10 mg once daily, with a dosag...",
+      "retrieved_sources": [
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "atorvastatin"
+      ],
+      "expected_keywords": [
+        "10",
+        "20",
+        "40",
+        "80",
+        "mg"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2639.3373012542725,
+      "generation_time_ms": 2138.4220123291016,
+      "total_time_ms": 4777.759313583374,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC064",
+      "category": "dosage",
+      "difficulty": "easy",
+      "query": "How much acetaminophen can I take per day?",
+      "answer": "The maximum daily dose of acetaminophen for adults is 4,000 mg. Taking more than this amount can lead to severe liver damage. It is also important to avoid using other medications that contain acetaminophen simultaneously, as this can increase the risk of overdose. If you have liver disease or are taking blood thinners like warfarin, you should consult a healthcare provider before using acetaminophen [Source 1]. \n\nAlways consult your healthcare provider for personalized dosing recommendations.",
+      "retrieved_sources": [
+        "Acetaminophen - FDA Drug Label",
+        "Pediatric Dosing Protocols - Internal Document",
+        "Gabapentin - FDA Drug Label",
+        "Drug Shortage Alternatives - Internal Document",
+        "Pediatric Dosing Protocols - Internal Document"
+      ],
+      "expected_sources": [
+        "acetaminophen"
+      ],
+      "expected_keywords": [
+        "3000",
+        "4000",
+        "mg",
+        "grams"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2405.8990478515625,
+      "generation_time_ms": 2029.2999744415283,
+      "total_time_ms": 4435.199022293091,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2,
+      "keyword_match_score": 0.25,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.25"
+    },
+    {
+      "test_id": "TC065",
+      "category": "dosage",
+      "difficulty": "easy",
+      "query": "What is the starting dose of sertraline?",
+      "answer": "The starting dose of sertraline for adults with major depressive disorder is recommended to be 50 mg once daily. For premenstrual dysphoric disorder (PMDD), the initial dose is also 50 mg per day, which can be administered either throughout the menstrual cycle or limited to the luteal phase, depending on the physician's assessment. For pediatric patients aged 6-12 years with obsessive-compulsive disorder (OCD), the starting dose is 25 mg once daily, while adolescents aged 13-17 should start at 5...",
+      "retrieved_sources": [
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "sertraline"
+      ],
+      "expected_keywords": [
+        "25",
+        "50",
+        "mg"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2686.323881149292,
+      "generation_time_ms": 2123.0993270874023,
+      "total_time_ms": 4809.423208236694,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC066",
+      "category": "dosage",
+      "difficulty": "medium",
+      "query": "How is prednisone typically dosed?",
+      "answer": "The dosing of prednisone can vary significantly based on the specific condition being treated and the individual patient's response. Here are some general guidelines:\n\n1. **Initial Dosage**: The initial dosage of prednisone can range from 5 mg to 60 mg per day. The exact dose depends on the severity of the disease being treated. In less severe cases, lower doses are typically sufficient, while more severe conditions may require higher doses. The initial dosage should be adjusted based on the pat...",
+      "retrieved_sources": [
+        "Prednisone - FDA Drug Label",
+        "Pediatric Dosing Protocols - Internal Document",
+        "Prednisone - FDA Drug Label",
+        "Prednisone - FDA Drug Label",
+        "Prednisone - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "prednisone"
+      ],
+      "expected_keywords": [
+        "varies",
+        "condition",
+        "taper"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2730.7848930358887,
+      "generation_time_ms": 5306.2849044799805,
+      "total_time_ms": 8037.069797515869,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC067",
+      "category": "dosage",
+      "difficulty": "medium",
+      "query": "What is the dose of amoxicillin for a respiratory infection?",
+      "answer": "The dosing of amoxicillin for respiratory infections varies based on the patient's age and weight. For pediatric patients aged 12 weeks (3 months) and older, the recommended dosing is as follows:\n\n- For less severe infections: **25 mg/kg/day** divided every 12 hours.\n- For more severe infections, including lower respiratory tract infections: **40-45 mg/kg/day** divided every 12 hours.\n\nFor adults and pediatric patients weighing 40 kg or more, the dosing is typically **500 mg every 12 hours** or ...",
+      "retrieved_sources": [
+        "Pediatric Dosing Protocols - Internal Document",
+        "Amoxicillin - FDA Drug Label",
+        "Amoxicillin - FDA Drug Label",
+        "Amoxicillin - FDA Drug Label",
+        "Amoxicillin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "amoxicillin"
+      ],
+      "expected_keywords": [
+        "500",
+        "875",
+        "mg",
+        "three",
+        "twice"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2636.3980770111084,
+      "generation_time_ms": 2452.5129795074463,
+      "total_time_ms": 5088.911056518555,
+      "mrr": 0.5,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "keyword_match_score": 0.4,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.40"
+    },
+    {
+      "test_id": "TC068",
+      "category": "dosage",
+      "difficulty": "easy",
+      "query": "How much aspirin should I take for heart protection?",
+      "answer": "I don't have information about that in my knowledge base. For specific dosing recommendations regarding aspirin for heart protection, I recommend consulting a healthcare provider. They can provide guidance based on individual health needs and circumstances.",
+      "retrieved_sources": [
+        "Ibuprofen",
+        "Aspirin",
+        "Aspirin",
+        "Aspirin - FDA Drug Label",
+        "Naproxen - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "aspirin"
+      ],
+      "expected_keywords": [
+        "81",
+        "low",
+        "dose",
+        "baby"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2300.2986907958984,
+      "generation_time_ms": 887.7573013305664,
+      "total_time_ms": 3188.055992126465,
+      "mrr": 0.5,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.00"
+    },
+    {
+      "test_id": "TC069",
+      "category": "dosage",
+      "difficulty": "easy",
+      "query": "What is the usual dose of metoprolol?",
+      "answer": "The usual starting dosage of metoprolol varies depending on the condition being treated:\n\n1. **Hypertension**: The recommended starting dosage is 100 mg daily, which can be given in a single or divided doses. The effective dosage range is 100 mg to 450 mg per day, with adjustments made at weekly intervals as needed and tolerated [Source 1].\n\n2. **Angina Pectoris**: The usual initial dosage is also 100 mg daily, typically given in two divided doses. The effective dosage range is 100 mg to 400 mg ...",
+      "retrieved_sources": [
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "metoprolol"
+      ],
+      "expected_keywords": [
+        "25",
+        "50",
+        "100",
+        "mg"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 3027.7276039123535,
+      "generation_time_ms": 3200.1547813415527,
+      "total_time_ms": 6227.882385253906,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.75,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC070",
+      "category": "dosage",
+      "difficulty": "medium",
+      "query": "How is azithromycin (Z-pack) dosed?",
+      "answer": "The dosing of azithromycin (commonly known as Z-pack) varies based on the condition being treated and the patient's age. Here are the key dosing guidelines:\n\n1. **For Pharyngitis/Tonsillitis in Children (ages 2 years and above)**: The recommended dose is 12 mg/kg once daily for 5 days. For example:\n   - A child weighing 8 kg would receive 2.5 mL (\u00bd tsp) daily for 5 days, totaling 500 mg.\n   - A child weighing 40 kg would receive 12.5 mL (2\u00bd tsp) daily for 5 days, totaling 2500 mg [Source 1].\n\n2....",
+      "retrieved_sources": [
+        "Azithromycin - FDA Drug Label",
+        "Azithromycin - FDA Drug Label",
+        "Azithromycin - FDA Drug Label",
+        "Azithromycin - FDA Drug Label",
+        "Azithromycin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "azithromycin"
+      ],
+      "expected_keywords": [
+        "500",
+        "250",
+        "mg",
+        "days"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2416.590690612793,
+      "generation_time_ms": 4244.164705276489,
+      "total_time_ms": 6660.755395889282,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC071",
+      "category": "special_populations",
+      "difficulty": "easy",
+      "query": "Can pregnant women take lisinopril?",
+      "answer": "Pregnant women should not take lisinopril. The FDA drug labels for both lisinopril and hydrochlorothiazide include a boxed warning regarding fetal toxicity. When pregnancy is detected, it is advised to discontinue the use of lisinopril and hydrochlorothiazide tablets as soon as possible, as these medications can cause injury and death to the developing fetus, particularly when used during the second and third trimesters of pregnancy [Source 1][Source 2][Source 3][Source 4].\n\nIf a woman is planni...",
+      "retrieved_sources": [
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "lisinopril"
+      ],
+      "expected_keywords": [
+        "contraindicated",
+        "fetal",
+        "avoid",
+        "pregnancy"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2885.7436180114746,
+      "generation_time_ms": 1976.5007495880127,
+      "total_time_ms": 4862.244367599487,
+      "mrr": 0.5,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.4,
+      "keyword_match_score": 0.5,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC072",
+      "category": "special_populations",
+      "difficulty": "medium",
+      "query": "Is metformin safe during pregnancy?",
+      "answer": "Metformin use during pregnancy has been studied, and available data do not report a clear association with major birth defects, miscarriage, or adverse maternal or fetal outcomes. However, these studies have limitations, such as small sample sizes and inconsistent comparator groups, which prevent definitive conclusions about the absence of risk [Source 1][Source 5].\n\nIt is important to note that poorly controlled diabetes during pregnancy poses significant risks for both the mother and the fetus...",
+      "retrieved_sources": [
+        "Metformin - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Metformin - FDA Drug Label",
+        "Metformin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "metformin"
+      ],
+      "expected_keywords": [
+        "pregnancy",
+        "gestational",
+        "diabetes"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2406.0542583465576,
+      "generation_time_ms": 2531.1074256896973,
+      "total_time_ms": 4937.161684036255,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC073",
+      "category": "special_populations",
+      "difficulty": "medium",
+      "query": "Can children take gabapentin?",
+      "answer": "Yes, children can take gabapentin. The pharmacokinetics of gabapentin have been studied in pediatric patients, specifically those between the ages of 1 month and 12 years. In this population, peak plasma concentrations were similar across the age group, and the effective daily dose for pediatric patients with epilepsy aged 3 and 4 years is suggested to be 40 mg/kg/day to achieve average plasma concentrations comparable to those in older children receiving 30 mg/kg/day [Source 4][Source 5]. \n\nHow...",
+      "retrieved_sources": [
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "gabapentin"
+      ],
+      "expected_keywords": [
+        "pediatric",
+        "age",
+        "years"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2529.039144515991,
+      "generation_time_ms": 2156.9442749023438,
+      "total_time_ms": 4685.983419418335,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC074",
+      "category": "special_populations",
+      "difficulty": "medium",
+      "query": "Is sertraline safe while breastfeeding?",
+      "answer": "The safety of sertraline during breastfeeding is not fully established. It is not known whether sertraline or its metabolites are excreted in human milk, and therefore, caution should be exercised when administering sertraline to nursing women. The potential risks to the infant should be weighed against the benefits of treatment for the mother [Source 2][Source 3]. \n\nIf you have concerns about using sertraline while breastfeeding, it is advisable to consult a healthcare provider for personalized...",
+      "retrieved_sources": [
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "sertraline"
+      ],
+      "expected_keywords": [
+        "breast",
+        "milk",
+        "infant"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2365.6506538391113,
+      "generation_time_ms": 1752.0129680633545,
+      "total_time_ms": 4117.663621902466,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC075",
+      "category": "special_populations",
+      "difficulty": "medium",
+      "query": "Should warfarin dose be adjusted in elderly patients?",
+      "answer": "Yes, the warfarin dose should be adjusted in elderly patients. It is recommended to consider lower initiation and maintenance doses for elderly individuals due to their greater sensitivity to the anticoagulant effects of warfarin. Additionally, more frequent monitoring for bleeding is advised in this population, especially in situations where there is an increased risk of hemorrhage. The overall goal is to ensure safe and effective anticoagulation while minimizing the risk of adverse effects [So...",
+      "retrieved_sources": [
+        "Warfarin - FDA Drug Label",
+        "Warfarin - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Warfarin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "warfarin"
+      ],
+      "expected_keywords": [
+        "elderly",
+        "age",
+        "sensitivity",
+        "lower"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 3015.6776905059814,
+      "generation_time_ms": 1596.3001251220703,
+      "total_time_ms": 4611.977815628052,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC076",
+      "category": "special_populations",
+      "difficulty": "medium",
+      "query": "Can ciprofloxacin be given to children?",
+      "answer": "Yes, ciprofloxacin ophthalmic solution 0.3% is approved for use in children of all ages. The safety and effectiveness of this formulation have been established through adequate and well-controlled studies involving adults, children, and neonates. While ciprofloxacin and other quinolones have been associated with arthropathy in immature animals when administered orally, there is no evidence that the topical ocular administration of ciprofloxacin affects weight-bearing joints in children [Source 1...",
+      "retrieved_sources": [
+        "Ciprofloxacin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "ciprofloxacin"
+      ],
+      "expected_keywords": [
+        "pediatric",
+        "cartilage",
+        "musculoskeletal"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2811.0270500183105,
+      "generation_time_ms": 1580.4319381713867,
+      "total_time_ms": 4391.458988189697,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.00"
+    },
+    {
+      "test_id": "TC077",
+      "category": "special_populations",
+      "difficulty": "medium",
+      "query": "Should metformin be adjusted in kidney disease?",
+      "answer": "Yes, metformin should be adjusted in patients with kidney disease. The use of metformin is contraindicated in patients with severe renal impairment (eGFR below 30 mL/min/1.73 m\u00b2) due to the increased risk of lactic acidosis and accumulation of the drug. For patients with moderate renal impairment (eGFR between 30 and less than 45 mL/min/1.73 m\u00b2), metformin is not recommended because these patients require a lower dosage than what is available in the fixed-dose combination product ZITUVIMET. Regu...",
+      "retrieved_sources": [
+        "Metformin - FDA Drug Label",
+        "Metformin",
+        "Metformin - FDA Drug Label",
+        "Metformin - FDA Drug Label",
+        "Metformin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "metformin"
+      ],
+      "expected_keywords": [
+        "renal",
+        "kidney",
+        "GFR",
+        "eGFR",
+        "creatinine"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2779.735803604126,
+      "generation_time_ms": 2379.6751499176025,
+      "total_time_ms": 5159.4109535217285,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.8,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC078",
+      "category": "special_populations",
+      "difficulty": "medium",
+      "query": "Is ibuprofen safe during pregnancy?",
+      "answer": "Ibuprofen is not considered safe during pregnancy, especially in the third trimester. According to the FDA drug label, it is particularly important not to use ibuprofen at 20 weeks or later in pregnancy unless specifically directed by a healthcare provider, as it may cause problems in the unborn child or complications during delivery [Source 1]. \n\nIf you are pregnant or planning to become pregnant, it is crucial to consult a healthcare professional before using ibuprofen or any other medication ...",
+      "retrieved_sources": [
+        "Ibuprofen - FDA Drug Label",
+        "Ibuprofen - FDA Drug Label",
+        "Ibuprofen",
+        "Aspirin",
+        "Warfarin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "ibuprofen"
+      ],
+      "expected_keywords": [
+        "third trimester",
+        "avoid",
+        "pregnancy"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2736.1600399017334,
+      "generation_time_ms": 1888.4658813476562,
+      "total_time_ms": 4624.62592124939,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.6,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC079",
+      "category": "special_populations",
+      "difficulty": "medium",
+      "query": "Can elderly patients take alprazolam?",
+      "answer": "Yes, elderly patients can take alprazolam, but caution is advised. The mean elimination half-life (T 1/2) of alprazolam in healthy elderly subjects is approximately 16.3 hours, which is longer than the 11.0 hours observed in healthy younger adults. This increased half-life indicates that alprazolam may remain in the system longer in older adults, potentially increasing the risk of side effects such as sedation and respiratory depression [Source 1][Source 2]. \n\nIt is important for healthcare prov...",
+      "retrieved_sources": [
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "alprazolam"
+      ],
+      "expected_keywords": [
+        "elderly",
+        "fall",
+        "cognitive",
+        "lower dose"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2608.884811401367,
+      "generation_time_ms": 2580.5060863494873,
+      "total_time_ms": 5189.3908977508545,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.25,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.25"
+    },
+    {
+      "test_id": "TC080",
+      "category": "special_populations",
+      "difficulty": "easy",
+      "query": "Is atorvastatin safe in pregnancy?",
+      "answer": "Atorvastatin is not considered safe during pregnancy. The FDA recommends discontinuing atorvastatin when pregnancy is recognized due to the potential for fetal harm. Atorvastatin decreases the synthesis of cholesterol, which is crucial for fetal development, and while there is insufficient data to determine a drug-associated risk of miscarriage, treatment of hyperlipidemia is generally not necessary during pregnancy. \n\nAvailable data from studies involving statins in pregnant women have not iden...",
+      "retrieved_sources": [
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "atorvastatin"
+      ],
+      "expected_keywords": [
+        "contraindicated",
+        "pregnancy",
+        "avoid"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2835.2086544036865,
+      "generation_time_ms": 3454.507827758789,
+      "total_time_ms": 6289.716482162476,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.33"
+    },
+    {
+      "test_id": "TC081",
+      "category": "special_populations",
+      "difficulty": "medium",
+      "query": "Should gabapentin be adjusted for kidney function?",
+      "answer": "Yes, gabapentin should be adjusted for kidney function. The drug is primarily excreted by the kidneys, and dosage adjustments are necessary in patients with renal impairment to avoid the risk of toxic reactions. \n\nFor adults aged 12 years and older with compromised renal function, the dosing recommendations vary based on creatinine clearance (CLCr):\n\n- **Creatinine Clearance \u226560 mL/min**: Total daily dose range of 900 to 3600 mg, with various regimens (e.g., 300 mg TID).\n- **Creatinine Clearance...",
+      "retrieved_sources": [
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "gabapentin"
+      ],
+      "expected_keywords": [
+        "renal",
+        "dose",
+        "adjustment",
+        "creatinine"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2582.353353500366,
+      "generation_time_ms": 3975.13484954834,
+      "total_time_ms": 6557.488203048706,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC082",
+      "category": "special_populations",
+      "difficulty": "medium",
+      "query": "Can acetaminophen be given to infants?",
+      "answer": "Yes, acetaminophen (Tylenol) can be given to infants. The dosing recommendation for infants is 10-15 mg/kg/dose every 4-6 hours, with a maximum single dose of 15 mg/kg (up to 1000 mg) and a maximum daily dose of 75 mg/kg/day (up to 4000 mg/day) [Source 1]. However, it is crucial to consult a healthcare provider for specific dosing and to ensure safety, especially in cases of hepatic impairment or other health concerns.",
+      "retrieved_sources": [
+        "Pediatric Dosing Protocols - Internal Document",
+        "Naproxen - FDA Drug Label",
+        "Naproxen - FDA Drug Label",
+        "Ibuprofen - FDA Drug Label",
+        "Acetaminophen - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "acetaminophen"
+      ],
+      "expected_keywords": [
+        "pediatric",
+        "infant",
+        "weight",
+        "dose"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2695.472478866577,
+      "generation_time_ms": 2260.366678237915,
+      "total_time_ms": 4955.839157104492,
+      "mrr": 0.2,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2,
+      "keyword_match_score": 0.5,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC083",
+      "category": "special_populations",
+      "difficulty": "medium",
+      "query": "Is fluoxetine safe for teenagers?",
+      "answer": "Fluoxetine is approved for use in pediatric patients, specifically for the treatment of Major Depressive Disorder (MDD) and Obsessive Compulsive Disorder (OCD) in children and adolescents. However, it is important to consider the potential risks associated with its use in this population. The FDA has issued a boxed warning indicating that antidepressants, including fluoxetine, increase the risk of suicidal thoughts and behaviors in children, adolescents, and young adults during short-term studie...",
+      "retrieved_sources": [
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "fluoxetine"
+      ],
+      "expected_keywords": [
+        "adolescent",
+        "suicidal",
+        "monitoring",
+        "pediatric"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2532.952070236206,
+      "generation_time_ms": 3386.5597248077393,
+      "total_time_ms": 5919.511795043945,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC084",
+      "category": "special_populations",
+      "difficulty": "easy",
+      "query": "Should losartan be avoided in pregnancy?",
+      "answer": "Yes, losartan should be avoided in pregnancy. The use of losartan potassium, which acts on the renin-angiotensin system, can cause fetal harm when administered to a pregnant woman. It is particularly dangerous during the second and third trimesters, as it can lead to reduced fetal renal function, oligohydramnios, and increased risks of fetal and neonatal morbidity and death. If pregnancy is detected, losartan should be discontinued as soon as possible to mitigate these risks [Source 2][Source 4]...",
+      "retrieved_sources": [
+        "Losartan - FDA Drug Label",
+        "Losartan - FDA Drug Label",
+        "Losartan - FDA Drug Label",
+        "Losartan - FDA Drug Label",
+        "Losartan - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "losartan"
+      ],
+      "expected_keywords": [
+        "contraindicated",
+        "pregnancy",
+        "fetal"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2787.045478820801,
+      "generation_time_ms": 2250.3721714019775,
+      "total_time_ms": 5037.417650222778,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC085",
+      "category": "special_populations",
+      "difficulty": "medium",
+      "query": "Can elderly patients take furosemide?",
+      "answer": "Yes, elderly patients can take furosemide, but caution is advised. The binding of furosemide to albumin may be reduced in elderly patients, and its renal clearance is statistically significantly smaller in older adults compared to younger individuals. This can lead to a decreased initial diuretic effect in older subjects [Source 1]. \n\nDue to the greater frequency of decreased hepatic, renal, or cardiac function in the elderly, dose selection should be cautious, typically starting at the low end ...",
+      "retrieved_sources": [
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "furosemide"
+      ],
+      "expected_keywords": [
+        "elderly",
+        "electrolyte",
+        "dehydration"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2611.1910343170166,
+      "generation_time_ms": 2079.615592956543,
+      "total_time_ms": 4690.80662727356,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.33"
+    },
+    {
+      "test_id": "TC086",
+      "category": "out_of_scope",
+      "difficulty": "easy",
+      "query": "What is the weather today?",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Acetaminophen - FDA Drug Label",
+        "Aspirin - FDA Drug Label",
+        "Ibuprofen - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "can't",
+        "outside",
+        "drug",
+        "medication"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2453.5365104675293,
+      "generation_time_ms": 577.1684646606445,
+      "total_time_ms": 3030.704975128174,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Did not politely refuse out-of-scope query"
+    },
+    {
+      "test_id": "TC087",
+      "category": "out_of_scope",
+      "difficulty": "easy",
+      "query": "Who won the Super Bowl?",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Fluoxetine - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label",
+        "Albuterol - FDA Drug Label"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "can't",
+        "outside",
+        "drug",
+        "medication"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 3454.893112182617,
+      "generation_time_ms": 626.4381408691406,
+      "total_time_ms": 4081.331253051758,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Did not politely refuse out-of-scope query"
+    },
+    {
+      "test_id": "TC088",
+      "category": "out_of_scope",
+      "difficulty": "easy",
+      "query": "Can you write me a poem about medicine?",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "High Alert Medications Checklist - Internal Document",
+        "Saferx Formulary Guidelines 2024 - Internal Document",
+        "Saferx Formulary Guidelines 2024 - Internal Document",
+        "Drug Shortage Alternatives - Internal Document",
+        "Opioid Prescribing Policy - Internal Document"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "drug safety",
+        "medication",
+        "questions"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2984.2424392700195,
+      "generation_time_ms": 557.6090812683105,
+      "total_time_ms": 3541.85152053833,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Did not politely refuse out-of-scope query"
+    },
+    {
+      "test_id": "TC089",
+      "category": "out_of_scope",
+      "difficulty": "easy",
+      "query": "What are the best restaurants near me?",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Ibuprofen",
+        "Levothyroxine - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label",
+        "Naproxen - FDA Drug Label",
+        "Naproxen - FDA Drug Label"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "can't",
+        "drug",
+        "safety"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2969.3613052368164,
+      "generation_time_ms": 605.2014827728271,
+      "total_time_ms": 3574.5627880096436,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Did not politely refuse out-of-scope query"
+    },
+    {
+      "test_id": "TC090",
+      "category": "out_of_scope",
+      "difficulty": "easy",
+      "query": "How do I fix my car?",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Metoprolol - FDA Drug Label",
+        "Albuterol - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label",
+        "Metformin"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "can't",
+        "drug",
+        "medication"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 3132.6255798339844,
+      "generation_time_ms": 701.7285823822021,
+      "total_time_ms": 3834.3541622161865,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Did not politely refuse out-of-scope query"
+    },
+    {
+      "test_id": "TC091",
+      "category": "out_of_scope",
+      "difficulty": "easy",
+      "query": "What's the capital of France?",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Warfarin - FDA Drug Label",
+        "Warfarin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Warfarin",
+        "Warfarin - FDA Drug Label"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "can't",
+        "drug",
+        "medication"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 3486.5689277648926,
+      "generation_time_ms": 498.86417388916016,
+      "total_time_ms": 3985.4331016540527,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Did not politely refuse out-of-scope query"
+    },
+    {
+      "test_id": "TC092",
+      "category": "out_of_scope",
+      "difficulty": "easy",
+      "query": "Tell me a joke",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Ciprofloxacin - FDA Drug Label",
+        "Amoxicillin - FDA Drug Label",
+        "Ciprofloxacin - FDA Drug Label",
+        "Metformin - FDA Drug Label",
+        "Fluoxetine - FDA Drug Label"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "drug",
+        "medication",
+        "help"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2993.6392307281494,
+      "generation_time_ms": 704.3230533599854,
+      "total_time_ms": 3697.9622840881348,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Did not politely refuse out-of-scope query"
+    },
+    {
+      "test_id": "TC093",
+      "category": "out_of_scope",
+      "difficulty": "easy",
+      "query": "What stocks should I invest in?",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Warfarin - FDA Drug Label",
+        "Drug Shortage Alternatives - Internal Document",
+        "Atorvastatin - FDA Drug Label"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "can't",
+        "drug",
+        "safety"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2875.000476837158,
+      "generation_time_ms": 523.6504077911377,
+      "total_time_ms": 3398.650884628296,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Did not politely refuse out-of-scope query"
+    },
+    {
+      "test_id": "TC094",
+      "category": "out_of_scope",
+      "difficulty": "easy",
+      "query": "How do I cook pasta?",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Amoxicillin - FDA Drug Label",
+        "Amoxicillin - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label",
+        "Losartan - FDA Drug Label"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "can't",
+        "drug",
+        "medication"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2903.7208557128906,
+      "generation_time_ms": 595.9765911102295,
+      "total_time_ms": 3499.69744682312,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Did not politely refuse out-of-scope query"
+    },
+    {
+      "test_id": "TC095",
+      "category": "out_of_scope",
+      "difficulty": "easy",
+      "query": "What is machine learning?",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril - FDA Drug Label"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "can't",
+        "drug",
+        "medication"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 3148.984670639038,
+      "generation_time_ms": 677.7679920196533,
+      "total_time_ms": 3826.7526626586914,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Did not politely refuse out-of-scope query"
+    },
+    {
+      "test_id": "TC096",
+      "category": "edge_cases",
+      "difficulty": "easy",
+      "query": "Tell me about XYZ-12345 medication",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Azithromycin - FDA Drug Label",
+        "High Alert Medications Checklist - Internal Document",
+        "Azithromycin - FDA Drug Label",
+        "Saferx Formulary Guidelines 2024 - Internal Document",
+        "Alprazolam - FDA Drug Label"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "don't have information",
+        "not found",
+        "unknown"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2961.681842803955,
+      "generation_time_ms": 466.45569801330566,
+      "total_time_ms": 3428.1375408172607,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC097",
+      "category": "edge_cases",
+      "difficulty": "medium",
+      "query": "What medications treat high blood pressure?",
+      "answer": "Several classes of medications are indicated for the treatment of high blood pressure (hypertension). Here are some examples:\n\n1. **Lisinopril**: An angiotensin-converting enzyme (ACE) inhibitor that helps lower blood pressure and reduces the risk of cardiovascular events such as strokes and myocardial infarctions [Source 1].\n\n2. **Hydrochlorothiazide**: A thiazide diuretic that also lowers blood pressure and is used to reduce the risk of cardiovascular events [Source 2].\n\n3. **Metoprolol**: A b...",
+      "retrieved_sources": [
+        "Lisinopril - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Lisinopril",
+        "Metoprolol - FDA Drug Label",
+        "Amlodipine - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "lisinopril",
+        "amlodipine",
+        "losartan",
+        "metoprolol"
+      ],
+      "expected_keywords": [
+        "lisinopril",
+        "amlodipine",
+        "losartan",
+        "metoprolol"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 3137.632369995117,
+      "generation_time_ms": 3122.5452423095703,
+      "total_time_ms": 6260.1776123046875,
+      "mrr": 1.0,
+      "recall_at_k": 0.75,
+      "precision_at_k": 0.8,
+      "keyword_match_score": 0.75,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC098",
+      "category": "edge_cases",
+      "difficulty": "medium",
+      "query": "What is the SafeRx formulary policy for PPIs?",
+      "answer": "The SafeRx formulary policy for proton pump inhibitors (PPIs) includes omeprazole as a preferred medication under Tier 1, which is the category for preferred generic medications with the lowest copay. Omeprazole is indicated for the treatment of gastroesophageal reflux disease (GERD) and is considered a first-line option in this therapeutic class. \n\nHealthcare providers are encouraged to prescribe formulary medications when clinically appropriate, and omeprazole is included as a preferred choice...",
+      "retrieved_sources": [
+        "Saferx Formulary Guidelines 2024 - Internal Document",
+        "Opioid Prescribing Policy - Internal Document",
+        "High Alert Medications Checklist - Internal Document",
+        "Pediatric Dosing Protocols - Internal Document",
+        "Drug Shortage Alternatives - Internal Document"
+      ],
+      "expected_sources": [
+        "formulary"
+      ],
+      "expected_keywords": [
+        "omeprazole",
+        "preferred",
+        "formulary"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2707.233428955078,
+      "generation_time_ms": 2398.0705738067627,
+      "total_time_ms": 5105.304002761841,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.2,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC099",
+      "category": "edge_cases",
+      "difficulty": "medium",
+      "query": "What are the opioid prescribing limits at SafeRx?",
+      "answer": "At SafeRx, the opioid prescribing limits are as follows:\n\n**Acute Pain (e.g., injury, post-surgical):**\n- A maximum of a **3-day supply** for opioid-naive patients.\n- A maximum of a **7-day supply** for post-surgical patients, but this requires documented justification.\n- No refills are allowed on the initial prescription.\n\n**Chronic Non-Cancer Pain:**\n- Prescribers should start with the **lowest effective dose**.\n- Avoid exceeding **50 Morphine Milligram Equivalents (MME)** per day without docu...",
+      "retrieved_sources": [
+        "Opioid Prescribing Policy - Internal Document",
+        "Alprazolam - FDA Drug Label",
+        "Drug Shortage Alternatives - Internal Document",
+        "Saferx Formulary Guidelines 2024 - Internal Document",
+        "Opioid Prescribing Policy - Internal Document"
+      ],
+      "expected_sources": [
+        "opioid"
+      ],
+      "expected_keywords": [
+        "MME",
+        "days",
+        "limit",
+        "50",
+        "90"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2413.5477542877197,
+      "generation_time_ms": 3722.991943359375,
+      "total_time_ms": 6136.539697647095,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.4,
+      "keyword_match_score": 0.8,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC100",
+      "category": "edge_cases",
+      "difficulty": "medium",
+      "query": "Which drugs are considered high-alert medications?",
+      "answer": "High-alert medications are drugs that carry a heightened risk of causing significant patient harm when used in error. According to the SafeRx High-Alert Medications Checklist, the following categories and specific medications are considered high-alert:\n\n1. **Anticoagulants**:\n   - Warfarin (Coumadin) - all strengths\n   - Heparin (unfractionated) - all concentrations\n   - Enoxaparin (Lovenox)\n   - Apixaban (Eliquis)\n   - Rivaroxaban (Xarelto)\n   - Dabigatran (Pradaxa)\n\n2. **Oral Hypoglycemics (hi...",
+      "retrieved_sources": [
+        "High Alert Medications Checklist - Internal Document",
+        "High Alert Medications Checklist - Internal Document",
+        "High Alert Medications Checklist - Internal Document",
+        "Saferx Formulary Guidelines 2024 - Internal Document",
+        "Warfarin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "high-alert",
+        "high alert"
+      ],
+      "expected_keywords": [
+        "anticoagulant",
+        "insulin",
+        "opioid",
+        "warfarin"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 2682.2144985198975,
+      "generation_time_ms": 2876.018285751343,
+      "total_time_ms": 5558.23278427124,
+      "mrr": 1.0,
+      "recall_at_k": 0.5,
+      "precision_at_k": 0.6,
+      "keyword_match_score": 0.5,
+      "passed": true,
+      "failure_reason": null
+    }
+  ]
+}

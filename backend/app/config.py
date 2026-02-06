@@ -38,8 +38,8 @@ class Settings(BaseSettings):
     rrf_k: int = 60  # RRF constant (typically 60)
 
     # Reranking Configuration
-    enable_reranking: bool = True
-    reranker_model: Literal["cohere", "cross-encoder"] = "cohere"
+    enable_reranking: bool = False  # Disabled by default (no Cohere key)
+    reranker_model: Literal["cohere", "cross-encoder"] = "cross-encoder"
     cross_encoder_model: str = "cross-encoder/ms-marco-MiniLM-L-6-v2"
 
     # Tracing Configuration

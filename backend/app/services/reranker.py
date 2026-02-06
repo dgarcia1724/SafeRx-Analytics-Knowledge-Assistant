@@ -102,8 +102,11 @@ class RerankerService:
         else:
             scored_results = self._rerank_cross_encoder(query, results)
 
-        # Sort by rerank score (descending)
-        scored_results.sort(key=lambda x: x.rerank_score, reverse=True)
+        # Sort by rerank score (descending), falling back to fusion_score if None
+        scored_results.sort(
+            key=lambda x: x.rerank_score if x.rerank_score is not None else x.fusion_score,
+            reverse=True
+        )
 
         # Update ranks and return top_k
         for i, result in enumerate(scored_results):
@@ -147,6 +150,10 @@ class RerankerService:
 
         except Exception as e:
             print(f"Cohere rerank failed: {e}. Falling back to original scores.")
+            # Set rerank_score to fusion_score for fallback sorting
+            for r in results:
+                if r.rerank_score is None:
+                    r.rerank_score = r.fusion_score
             return results
 
     def _rerank_cross_encoder(
@@ -170,6 +177,10 @@ class RerankerService:
 
         except Exception as e:
             print(f"Cross-encoder rerank failed: {e}. Falling back to original scores.")
+            # Set rerank_score to fusion_score for fallback sorting
+            for r in results:
+                if r.rerank_score is None:
+                    r.rerank_score = r.fusion_score
             return results
 
     def is_available(self) -> bool:

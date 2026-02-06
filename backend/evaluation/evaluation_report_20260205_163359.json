@@ -1,0 +1,438 @@
+{
+  "timestamp": "2026-02-05T16:33:59.257176",
+  "config": {
+    "hybrid_search": true,
+    "reranking": true,
+    "reranker_model": "cohere",
+    "vector_weight": 0.7,
+    "bm25_weight": 0.3
+  },
+  "collection_stats": {
+    "vector": {
+      "name": "drug_safety_docs",
+      "count": 848
+    },
+    "bm25": {
+      "document_count": 848,
+      "index_loaded": true,
+      "index_path": "data\\bm25_index.pkl",
+      "avg_doc_length": 228.36438679245282
+    },
+    "hybrid_config": {
+      "enabled": true,
+      "vector_weight": 0.7,
+      "bm25_weight": 0.3,
+      "rrf_k": 60
+    }
+  },
+  "test_summary": {
+    "total": 10,
+    "passed": 6,
+    "failed": 4,
+    "pass_rate": 0.6,
+    "total_evaluation_time_s": 37.486528158187866,
+    "avg_query_time_ms": 3748.6528158187866
+  },
+  "metrics": {
+    "total_cases": 10,
+    "overall": {
+      "avg_mrr": 1.0,
+      "avg_recall_at_5": 0.975,
+      "avg_precision_at_5": 0.6599999999999999,
+      "avg_keyword_match": 0.5083333333333333
+    },
+    "by_category": {
+      "edge_cases": {
+        "count": 2,
+        "avg_mrr": 1.0,
+        "avg_recall": 0.875,
+        "avg_precision": 0.4,
+        "avg_keyword_match": 0.5416666666666666
+      },
+      "adverse_reactions": {
+        "count": 2,
+        "avg_mrr": 1.0,
+        "avg_recall": 1.0,
+        "avg_precision": 1.0,
+        "avg_keyword_match": 0.6666666666666666
+      },
+      "out_of_scope": {
+        "count": 2,
+        "avg_mrr": 1.0,
+        "avg_recall": 1.0,
+        "avg_precision": 0.0,
+        "avg_keyword_match": 0.0
+      },
+      "dosage": {
+        "count": 2,
+        "avg_mrr": 1.0,
+        "avg_recall": 1.0,
+        "avg_precision": 0.9,
+        "avg_keyword_match": 0.8333333333333333
+      },
+      "contraindications": {
+        "count": 2,
+        "avg_mrr": 1.0,
+        "avg_recall": 1.0,
+        "avg_precision": 1.0,
+        "avg_keyword_match": 0.5
+      }
+    },
+    "by_difficulty": {
+      "easy": {
+        "count": 6,
+        "avg_mrr": 1.0,
+        "avg_recall": 1.0,
+        "avg_precision": 0.5,
+        "avg_keyword_match": 0.4444444444444444
+      },
+      "medium": {
+        "count": 4,
+        "avg_mrr": 1.0,
+        "avg_recall": 0.9375,
+        "avg_precision": 0.9,
+        "avg_keyword_match": 0.6041666666666666
+      }
+    }
+  },
+  "failure_analysis": {
+    "total_failures": 4,
+    "retrieval_failures": 0,
+    "generation_failures": 2,
+    "other_failures": 2,
+    "by_category": {
+      "adverse_reactions": 1,
+      "out_of_scope": 2,
+      "contraindications": 1
+    },
+    "by_difficulty": {
+      "easy": 3,
+      "medium": 1
+    },
+    "retrieval_failure_ids": [],
+    "generation_failure_ids": [
+      "TC024",
+      "TC045"
+    ]
+  },
+  "detailed_results": [
+    {
+      "test_id": "TC096",
+      "category": "edge_cases",
+      "difficulty": "easy",
+      "query": "Tell me about XYZ-12345 medication",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "High Alert Medications Checklist - Internal Document",
+        "Saferx Formulary Guidelines 2024 - Internal Document",
+        "Drug Shortage Alternatives - Internal Document",
+        "High Alert Medications Checklist - Internal Document",
+        "Amlodipine - FDA Drug Label"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "don't have information",
+        "not found",
+        "unknown"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 1356.0304641723633,
+      "generation_time_ms": 1646.5835571289062,
+      "total_time_ms": 3002.6140213012695,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC097",
+      "category": "edge_cases",
+      "difficulty": "medium",
+      "query": "What medications treat high blood pressure?",
+      "answer": "Several classes of medications are indicated for the treatment of high blood pressure (hypertension). Here are some examples:\n\n1. **ACE Inhibitors**: Lisinopril is a commonly used ACE inhibitor that helps lower blood pressure and reduce the risk of cardiovascular events such as strokes and myocardial infarctions. It is often part of a comprehensive cardiovascular risk management plan that may include lifestyle changes and other medications [Source 1].\n\n2. **Thiazide Diuretics**: Hydrochlorothiaz...",
+      "retrieved_sources": [
+        "Lisinopril - FDA Drug Label",
+        "Hydrochlorothiazide - FDA Drug Label",
+        "Amlodipine - FDA Drug Label",
+        "Metoprolol - FDA Drug Label",
+        "Lisinopril"
+      ],
+      "expected_sources": [
+        "lisinopril",
+        "amlodipine",
+        "losartan",
+        "metoprolol"
+      ],
+      "expected_keywords": [
+        "lisinopril",
+        "amlodipine",
+        "losartan",
+        "metoprolol"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 259.9351406097412,
+      "generation_time_ms": 6086.479663848877,
+      "total_time_ms": 6346.414804458618,
+      "mrr": 1.0,
+      "recall_at_k": 0.75,
+      "precision_at_k": 0.8,
+      "keyword_match_score": 0.75,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC023",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "Does atorvastatin cause muscle pain?",
+      "answer": "Yes, atorvastatin can cause muscle pain as an adverse reaction. In clinical trials, muscle-related symptoms such as myalgia (muscle pain) were reported in 3.1% to 8.4% of patients, depending on the dose. Additionally, musculoskeletal pain was noted in 3.6% to 11.7% of patients treated with atorvastatin across various dosages [Source 2][Source 4][Source 5]. \n\nIt's important to monitor for signs of myopathy and rhabdomyolysis, especially in patients who may be at higher risk [Source 1][Source 5]. ...",
+      "retrieved_sources": [
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label",
+        "Atorvastatin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "atorvastatin"
+      ],
+      "expected_keywords": [
+        "muscle",
+        "myalgia",
+        "pain"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 480.4842472076416,
+      "generation_time_ms": 3349.5442867279053,
+      "total_time_ms": 3830.028533935547,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC024",
+      "category": "adverse_reactions",
+      "difficulty": "easy",
+      "query": "What are the side effects of gabapentin?",
+      "answer": "Gabapentin can cause a variety of side effects. The most common adverse reactions reported in clinical trials for adults using gabapentin for postherpetic neuralgia include:\n\n- **Dizziness** (28%)\n- **Somnolence** (21%)\n- **Peripheral edema** (8%)\n- **Asthenia** (6%)\n- **Diarrhea** (6%)\n- **Dry mouth** (5%)\n- **Nausea** (4%)\n- **Vomiting** (3%)\n\nOther notable side effects include ataxia, abnormal thinking, abnormal gait, and incoordination, which were reported at lower frequencies. Additionally,...",
+      "retrieved_sources": [
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label",
+        "Gabapentin - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "gabapentin"
+      ],
+      "expected_keywords": [
+        "drowsiness",
+        "dizziness",
+        "fatigue"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 278.796911239624,
+      "generation_time_ms": 5440.970182418823,
+      "total_time_ms": 5719.767093658447,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.3333333333333333,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.33"
+    },
+    {
+      "test_id": "TC089",
+      "category": "out_of_scope",
+      "difficulty": "easy",
+      "query": "What are the best restaurants near me?",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Omeprazole - FDA Drug Label",
+        "Levothyroxine - FDA Drug Label",
+        "Omeprazole - FDA Drug Label",
+        "Drug Shortage Alternatives - Internal Document",
+        "Drug Shortage Alternatives - Internal Document"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "can't",
+        "drug",
+        "safety"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 393.9695358276367,
+      "generation_time_ms": 1776.1280536651611,
+      "total_time_ms": 2170.097589492798,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Did not politely refuse out-of-scope query"
+    },
+    {
+      "test_id": "TC088",
+      "category": "out_of_scope",
+      "difficulty": "easy",
+      "query": "Can you write me a poem about medicine?",
+      "answer": "I don't have information about that in my knowledge base.",
+      "retrieved_sources": [
+        "Opioid Prescribing Policy - Internal Document",
+        "High Alert Medications Checklist - Internal Document",
+        "High Alert Medications Checklist - Internal Document",
+        "High Alert Medications Checklist - Internal Document",
+        "Pediatric Dosing Protocols - Internal Document"
+      ],
+      "expected_sources": [],
+      "expected_keywords": [
+        "drug safety",
+        "medication",
+        "questions"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 349.4529724121094,
+      "generation_time_ms": 1422.8596687316895,
+      "total_time_ms": 1772.3126411437988,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Did not politely refuse out-of-scope query"
+    },
+    {
+      "test_id": "TC065",
+      "category": "dosage",
+      "difficulty": "easy",
+      "query": "What is the starting dose of sertraline?",
+      "answer": "The starting dose of sertraline for adults is typically 50 mg once daily for the treatment of major depressive disorder, panic disorder, post-traumatic stress disorder (PTSD), and social anxiety disorder. For premenstrual dysphoric disorder (PMDD), treatment should also be initiated with a dose of 50 mg per day. \n\nIn pediatric patients (ages 6-12) with obsessive-compulsive disorder (OCD), the starting dose is 25 mg once daily, while adolescents (ages 13-17) should start at 50 mg once daily [Sour...",
+      "retrieved_sources": [
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label",
+        "Sertraline - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "sertraline"
+      ],
+      "expected_keywords": [
+        "25",
+        "50",
+        "mg"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 1069.5409774780273,
+      "generation_time_ms": 3316.075086593628,
+      "total_time_ms": 4385.616064071655,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC066",
+      "category": "dosage",
+      "difficulty": "medium",
+      "query": "How is prednisone typically dosed?",
+      "answer": "Prednisone dosing can vary significantly based on the specific condition being treated. The initial dosage typically ranges from 5 mg to 60 mg per day. For less severe conditions, lower doses are generally sufficient, while higher doses may be necessary for more severe cases. The dosage should be individualized based on the patient's response and the disease being treated. \n\nOnce a satisfactory clinical response is achieved, the maintenance dosage should be determined by gradually decreasing the...",
+      "retrieved_sources": [
+        "Prednisone - FDA Drug Label",
+        "Prednisone - FDA Drug Label",
+        "Pediatric Dosing Protocols - Internal Document",
+        "Prednisone - FDA Drug Label",
+        "Prednisone - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "prednisone"
+      ],
+      "expected_keywords": [
+        "varies",
+        "condition",
+        "taper"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 279.5724868774414,
+      "generation_time_ms": 3643.4803009033203,
+      "total_time_ms": 3923.0527877807617,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 0.8,
+      "keyword_match_score": 0.6666666666666666,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC052",
+      "category": "contraindications",
+      "difficulty": "medium",
+      "query": "Is furosemide contraindicated in sulfa allergy?",
+      "answer": "I don't have information about that in my knowledge base. The provided context documents do not specify whether furosemide is contraindicated in patients with a sulfa allergy. However, furosemide is a sulfonamide derivative, and caution may be warranted in patients with a known sulfa allergy. It is best to consult a healthcare provider for personalized advice regarding this concern.",
+      "retrieved_sources": [
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label",
+        "Furosemide - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "furosemide"
+      ],
+      "expected_keywords": [
+        "sulfonamide",
+        "allergy",
+        "caution"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 211.6079330444336,
+      "generation_time_ms": 1743.1073188781738,
+      "total_time_ms": 1954.7152519226074,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 1.0,
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "test_id": "TC045",
+      "category": "contraindications",
+      "difficulty": "medium",
+      "query": "Who should not take alprazolam?",
+      "answer": "Alprazolam should not be taken by individuals who have certain contraindications. Specifically, it is contraindicated in patients who are:\n\n1. **Allergic to alprazolam or any of its components**: Individuals with a known hypersensitivity to alprazolam should avoid its use.\n2. **Concomitantly using strong CYP3A inhibitors** (except for ritonavir): The use of alprazolam with strong CYP3A inhibitors can lead to increased exposure and potential toxicity [Source 5].\n3. **Pregnant or planning to becom...",
+      "retrieved_sources": [
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label",
+        "Alprazolam - FDA Drug Label"
+      ],
+      "expected_sources": [
+        "alprazolam"
+      ],
+      "expected_keywords": [
+        "glaucoma",
+        "respiratory",
+        "sleep apnea"
+      ],
+      "retrieval_method": "hybrid_reranked",
+      "retrieval_time_ms": 228.51967811584473,
+      "generation_time_ms": 4153.389692306519,
+      "total_time_ms": 4381.909370422363,
+      "mrr": 1.0,
+      "recall_at_k": 1.0,
+      "precision_at_k": 1.0,
+      "keyword_match_score": 0.0,
+      "passed": false,
+      "failure_reason": "Generation failure: KeywordMatch=0.00"
+    }
+  ]
+}
