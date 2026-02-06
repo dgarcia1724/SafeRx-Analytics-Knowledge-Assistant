@@ -292,15 +292,12 @@ python -m evaluation.runner --compare
 - "What is the recommended dosage for atorvastatin?"
 - "What is our therapeutic substitution policy?" (internal doc)
 
-## Interview Talking Points
+## Design Decisions
 
-1. **Hybrid Search**: "BM25 catches keyword matches that embeddings miss. I saw improved recall on drug name queries by combining both."
-
-2. **Evaluation**: "I have 100 test cases across 7 categories. Retrieval achieves 96% recall. Most failures are generation issues, not retrieval."
-
-3. **Streaming**: "Server-Sent Events provide real-time token streaming. Sources are sent first, then the response streams word by word."
-
-4. **Tradeoffs**: "I chose RRF over linear fusion because it's more robust to score distribution differences between retrievers."
+- **Hybrid Retrieval**: BM25 catches exact keyword matches that embeddings miss, improving recall on drug name queries
+- **RRF over Linear Fusion**: More robust to score distribution differences between retrievers
+- **Streaming via SSE**: Sources sent first, then response streams token-by-token for better UX
+- **No LangChain/LlamaIndex**: Built from scratch to understand RAG fundamentals
 
 ## License
 
